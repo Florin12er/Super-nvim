@@ -3,6 +3,8 @@
 - [[#super-nvim][Super Nvim]]
 - [[#description][Description:]]
 - [[#features][Features:]]
+- [[#instalation][Instalation]]
+  - [[#linux][Linux]]
 
 * Description:
 - this is my neovim configuratino but has so many plugins and configuration I can basically call it an neovim distribution
@@ -18,3 +20,10 @@
 - lots of notes plugins like vimwiki obsidian-nvim and norg
 - lsp configuration with autocomplete for various programming languages(like java, javascript , go)
 - Good looks
+
+* Instalation
+** Linux
+#+BEGIN_SRC bash
+mkdir ~/.config/nvim
+git clone https://github.com/Florin12er/Super-nvim.git ~/.config/nvim
+#+END_SRC
