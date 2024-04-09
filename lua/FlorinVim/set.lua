@@ -2,7 +2,6 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
@@ -23,6 +22,7 @@ vim.cmd("set foldcolumn=0")
 vim.cmd("set relativenumber")
 vim.cmd("set signcolumn=no")
 vim.cmd("set cursorline")
+vim.cmd("set nocp")
 vim.cmd("TransparentEnable")
 
 vim.o.winfixheight = true
@@ -45,4 +45,5 @@ require("duckytype").setup({})
 vim.cmd("let test#strategy = 'vimux'")
 --[[ require("codeium").setup({}) ]]
 require("nvim-surround").setup({})
+vim.ui.select = require("dropbar.utils.menu").select
 

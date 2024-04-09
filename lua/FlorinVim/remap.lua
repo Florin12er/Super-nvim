@@ -77,7 +77,7 @@ local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
 vim.keymap.set("n", "<leader>m", mark.add_file)
-vim.keymap.set("n", "<leader>e", ui.toggle_quick_menu)
+vim.keymap.set("n", "<leader>w", ui.toggle_quick_menu)
 
 vim.keymap.set("n", "<M-1>", function()
 	ui.nav_file(1)
@@ -199,3 +199,6 @@ vim.keymap.set("n", "<leader>T", ":TestFile<CR>", { noremap = true, silent = tru
 vim.keymap.set("n", "<leader>ta", ":TestSuite<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tl", ":TestVisit<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tl", ":TestLast<CR>", { noremap = true, silent = true })
+
+--file manager
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer

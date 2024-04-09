@@ -113,7 +113,7 @@ require("lazy").setup({
 			"mrjones2014/tldr.nvim",
 			dependencies = { "nvim-telescope/telescope.nvim" },
 		},
-		"nvim-telescope/telescope-fzf-native.nvim",
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		----emojis
 		"xiyaowong/telescope-emoji.nvim",
 		{
@@ -152,7 +152,6 @@ require("lazy").setup({
 		"nvim-neorg/norg-specs",
 		{
 			"nvim-neorg/neorg",
-			build = ":Neorg sync-parsers",
 			lazy = false,
 			dependencies = {
 				"nvim-neorg/norg-specs",
@@ -170,7 +169,6 @@ require("lazy").setup({
 				"nvim-lua/plenary.nvim",
 			},
 		},
-
 		----live server and markdown preview
 		{
 			"iamcco/markdown-preview.nvim",
@@ -185,7 +183,7 @@ require("lazy").setup({
 			build = "npm global add live-server",
 			config = true,
 		},
-
+		--Images
 		--zen mode
 		"folke/twilight.nvim",
 		"folke/zen-mode.nvim",
@@ -221,7 +219,11 @@ require("lazy").setup({
 			config = true,
 		},
 		"windwp/nvim-ts-autotag",
-		{ "akinsho/toggleterm.nvim", version = "*", config = true },
+		{
+			"akinsho/toggleterm.nvim",
+			version = "*",
+			config = true,
+		},
 		"ThePrimeagen/harpoon",
 		"voldikss/vim-floaterm",
 		"mbbill/undotree",
@@ -240,6 +242,13 @@ require("lazy").setup({
 			"kylechui/nvim-surround",
 			version = "*",
 			event = "VeryLazy",
+		},
+		{
+			"nvim-tree/nvim-tree.lua",
+			dependencies = {
+				"JMarkin/nvim-tree.lua-float-preview",
+				lazy = true,
+			},
 		},
 		--games
 		"ThePrimeagen/vim-be-good",
