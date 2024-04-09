@@ -7,6 +7,7 @@ cmp.setup({
 		{ name = "npm", keyword_length = 4 },
 		{ name = "cmp_lsp_signature_help" },
 		{ name = "codeium" },
+		{ name = "orgmode" },
 		{ name = "neorg", filetype = { "norg", "org" } },
 		{ name = "treesitter" },
 		{ name = "emoji" },
@@ -64,4 +65,3 @@ cmp.setup({
 		}),
 	},
 })
-require("cmp-npm").setup({})

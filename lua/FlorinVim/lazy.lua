@@ -105,6 +105,10 @@ require("lazy").setup({
 
 		--telescope plugins
 		{
+			"FabianWirth/search.nvim",
+			dependencies = { "nvim-telescope/telescope.nvim" },
+		},
+		{
 			"nvim-telescope/telescope.nvim",
 			tag = "0.1.5",
 			dependencies = { "nvim-lua/plenary.nvim" },
@@ -141,12 +145,19 @@ require("lazy").setup({
 		},
 
 		--notes plugins
+		"jakewvincent/mkdnflow.nvim",
 		"vimwiki/vimwiki",
 		"preservim/vim-pencil",
+		"Myzel394/easytables.nvim",
 		{
 			"vhyrro/luarocks.nvim",
 			priority = 1000,
 			config = true,
+		},
+		{
+			"nvim-orgmode/orgmode",
+			event = "VeryLazy",
+			ft = { "org" },
 		},
 		"nvim-neorg/neorg-telescope",
 		"nvim-neorg/norg-specs",
@@ -169,7 +180,7 @@ require("lazy").setup({
 				"nvim-lua/plenary.nvim",
 			},
 		},
-		----live server and markdown preview
+		----live server , markdown preview, markmap
 		{
 			"iamcco/markdown-preview.nvim",
 			cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -183,13 +194,26 @@ require("lazy").setup({
 			build = "npm global add live-server",
 			config = true,
 		},
-		--Images
+		{
+			"Zeioth/markmap.nvim",
+			build = "yarn global add markmap-cli",
+			cmd = { "MarkmapOpen", "MarkmapSave", "MarkmapWatch", "MarkmapWatchStop" },
+			opts = {
+				html_output = "/tmp/markmap.html", -- (default) Setting a empty string "" here means: [Current buffer path].html
+				hide_toolbar = false, -- (default)
+				grace_period = 3600000, -- (default) Stops markmap watch after 60 minutes. Set it to 0 to disable the grace_period.
+			},
+			config = function(_, opts)
+				require("markmap").setup(opts)
+			end,
+		},
 		--zen mode
 		"folke/twilight.nvim",
 		"folke/zen-mode.nvim",
 
 		--lsp plugins
 		"mfussenegger/nvim-jdtls",
+		"simaxme/java.nvim",
 		{
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
@@ -208,9 +232,11 @@ require("lazy").setup({
 		},
 
 		--treesitter
+		"nvim-treesitter/nvim-treesitter-context",
 		"norcalli/nvim-colorizer.lua",
 		"nvim-treesitter/nvim-treesitter",
 		"brenoprata10/nvim-highlight-colors",
+		"uga-rosa/ccc.nvim",
 		"maxmellon/vim-jsx-pretty",
 
 		--Productivity
@@ -219,6 +245,7 @@ require("lazy").setup({
 			config = true,
 		},
 		"windwp/nvim-ts-autotag",
+		"m4xshen/autoclose.nvim",
 		{
 			"akinsho/toggleterm.nvim",
 			version = "*",
@@ -250,9 +277,25 @@ require("lazy").setup({
 				lazy = true,
 			},
 		},
+		{
+			"simonmclean/triptych.nvim",
+			event = "VeryLazy",
+			dependencies = {
+				"nvim-lua/plenary.nvim", -- required
+				"nvim-tree/nvim-web-devicons", -- optional
+			},
+		},
+		{
+			"gsuuon/tshjkl.nvim",
+			config = true,
+		},
 		--games
 		"ThePrimeagen/vim-be-good",
 		"kwakzalver/duckytype.nvim",
+		{
+			"m4xshen/hardtime.nvim",
+			dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+		},
 
 		-- miscellaneous
 		"nvim-lua/plenary.nvim",

@@ -34,14 +34,12 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_dd]])
-vim.keymap.set("n", "<leader>so", function()
+vim.keymap.set("n", "<leader>m", function()
 	vim.cmd("so")
 end)
 
 --telescope
-require("telescope").load_extension("emoji")
-require("telescope").load_extension("nerdy")
-require("telescope").load_extension("neorg")
+
 vim.api.nvim_set_keymap("n", "<leader>ne", ":Telescope nerdy<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>ej", ":Telescope emoji<CR>", { noremap = true, silent = true })
 local builtin = require("telescope.builtin")
@@ -50,16 +48,13 @@ vim.keymap.set("n", "<leader>fr", builtin.oldfiles, {})
 vim.keymap.set("n", "<leader>gf", builtin.git_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>cs", builtin.colorscheme, {})
+vim.keymap.set("n", "<leader>cc", ":CccPick<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>bb", builtin.buffers, {})
 
 vim.keymap.set("n", "<leader>fs", function()
 	builtin.grep_string({ search = vim.fn.input("Find > ") })
 end)
 vim.keymap.set("n", "<leader>so", ":SymbolsOutline<CR>", { noremap = true, silent = true })
-
---if
-
-vim.api.nvim_set_keymap("n", "<leader>lf", ":Lf<CR>", { noremap = true, silent = true })
 
 --terminal
 -- exit terminal mode
@@ -71,7 +66,7 @@ vim.api.nvim_set_keymap("t", "<C-q>", "<C-\\><C-n>:q<CR>", { noremap = true, sil
 require("toggleterm").setup({
 	shade_terminals = false,
 })
-vim.keymap.set("n", "<leader>tt", ":ToggleTerm<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>t", ":ToggleTerm<CR>", { noremap = true, silent = true })
 --harpoon
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
@@ -113,15 +108,14 @@ vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("n", "<leader>hs", ":split<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>vs", ":vsplit<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-q>", "<C-w>q", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-y>", "<C-w>+", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-w>", "<C-w>-", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-i>", "<C-w>+", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-d>", "<C-w>-", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-c>", "<C-w>>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-x>", "<C-w><", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-y>", "<C-w><", { noremap = true, silent = true })
 
 --format
 
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {})
-
 
 vim.keymap.set("i", "<C-c>", function()
 	return vim.fn["codeium#Accept"]()
@@ -172,7 +166,6 @@ vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { noremap = true
 vim.cmd("Gitsigns toggle_signs")
 vim.cmd("Gitsigns toggle_current_line_blame")
 
--- vim.keymap.set("n", "<leader>md", ":Explore<CR>", { noremap = true, silent = true })
 --zen mode
 vim.keymap.set("n", "<leader>z", ":ZenMode<CR>", { noremap = true, silent = true })
 
@@ -181,6 +174,7 @@ vim.keymap.set("n", "<leader>or", ":ObsidianRename<CR>", { noremap = true, silen
 vim.keymap.set("n", "<leader>on", ":ObsidianNew<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>os", ":ObsidianSearch<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ol", ":ObsidianLink<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>te", ":EasyTablesImportThisTable<CR>", {noremap = true , silent = true})
 
 --ollama ai
 vim.keymap.set({ "n", "v" }, "<leader>ai", ":Gen<CR>")
@@ -194,7 +188,7 @@ vim.keymap.set("n", "zl", ":loadview<CR>", { noremap = true, silent = true })
 
 -- vim test
 
-vim.keymap.set("n", "<leader>t", ":TestNearest<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>tt", ":TestNearest<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>T", ":TestFile<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ta", ":TestSuite<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tl", ":TestVisit<CR>", { noremap = true, silent = true })
@@ -202,3 +196,6 @@ vim.keymap.set("n", "<leader>tl", ":TestLast<CR>", { noremap = true, silent = tr
 
 --file manager
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+vim.keymap.set("n", "<leader>-", ":Triptych<CR>", { silent = true })
+--hard mode
+vim.keymap.set("n", "<leader>hm", ":Hardtime toggle<CR>", { noremap = true, silent = true })
