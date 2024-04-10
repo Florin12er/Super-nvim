@@ -28,9 +28,12 @@ require("obsidian").setup({
 		},
 	},
 })
+require("mkdnflow").setup({})
 require("easytables").setup({})
 require("orgmode").setup({
 	org_agenda_files = "~/orgfiles/**/*",
 	org_default_notes_file = "~/orgfiles/refile.org",
 })
-require("mkdnflow").setup({})
+--org bullets for markdown and org
+require("org-bullets").setup()
+

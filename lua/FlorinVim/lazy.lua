@@ -104,15 +104,7 @@ require("lazy").setup({
 		"onsails/lspkind.nvim",
 
 		--telescope plugins
-		{
-			"FabianWirth/search.nvim",
-			dependencies = { "nvim-telescope/telescope.nvim" },
-		},
-		{
-			"nvim-telescope/telescope.nvim",
-			tag = "0.1.5",
-			dependencies = { "nvim-lua/plenary.nvim" },
-		},
+		"joaomsa/telescope-orgmode.nvim",
 		{
 			"mrjones2014/tldr.nvim",
 			dependencies = { "nvim-telescope/telescope.nvim" },
@@ -145,20 +137,38 @@ require("lazy").setup({
 		},
 
 		--notes plugins
+
+		----markdown
 		"jakewvincent/mkdnflow.nvim",
-		"vimwiki/vimwiki",
 		"preservim/vim-pencil",
 		"Myzel394/easytables.nvim",
+		"dhruvasagar/vim-table-mode",
 		{
 			"vhyrro/luarocks.nvim",
 			priority = 1000,
 			config = true,
 		},
 		{
+			"epwalsh/obsidian.nvim",
+			version = "*",
+			lazy = true,
+			ft = "markdown",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+			},
+		},
+		{
+			"lukas-reineke/headlines.nvim",
+			dependencies = "nvim-treesitter/nvim-treesitter",
+			config = true, -- or `opts = {}`
+		},
+		----org mode
+		{
 			"nvim-orgmode/orgmode",
 			event = "VeryLazy",
 			ft = { "org" },
 		},
+		"akinsho/org-bullets.nvim",
 		"nvim-neorg/neorg-telescope",
 		"nvim-neorg/norg-specs",
 		{
@@ -169,15 +179,6 @@ require("lazy").setup({
 				"nvim-lua/plenary.nvim",
 				"nvim-neorg/neorg-telescope",
 				"luarocks.nvim",
-			},
-		},
-		{
-			"epwalsh/obsidian.nvim",
-			version = "*",
-			lazy = true,
-			ft = "markdown",
-			dependencies = {
-				"nvim-lua/plenary.nvim",
 			},
 		},
 		----live server , markdown preview, markmap

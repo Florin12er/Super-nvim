@@ -22,7 +22,7 @@ vim.cmd("set foldcolumn=0")
 vim.cmd("set relativenumber")
 vim.cmd("set signcolumn=no")
 vim.cmd("set cursorline")
-vim.cmd("set nocp")
+vim.cmd("autocmd FileType org setlocal nofoldenable")
 vim.cmd("TransparentEnable")
 
 vim.o.winfixheight = true
@@ -36,6 +36,7 @@ vim.cmd([[autocmd VimEnter * LspStart<CR>]])
 vim.opt.updatetime = 50
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt_local.conceallevel = 2
+vim.opt.concealcursor = "nc"
 --vim.opt.colorcolumn = "100"
 vim.cmd("highlight ColorColumn ctermbg=none guibg=#89b4fa")
 require("notify").setup({
@@ -48,6 +49,9 @@ vim.cmd("let test#strategy = 'vimux'")
 require("nvim-surround").setup({})
 vim.ui.select = require("dropbar.utils.menu").select
 
-require("ccc").setup();
+require("ccc").setup()
 require("autoclose").setup()
-require 'triptych'.setup()
+require("triptych").setup()
+
+
+

@@ -16,15 +16,17 @@
 * Features:
 - Lots of beautifull colorschemes you can change your theme by either pressing space + c + s or by going to the file color.lua
 - Very efficent file navigation with telescope
-- Emoji: two emoji plugins for you emoji needs
+- Emoji: two emoji plugins for your emoji needs
 - lots of notes plugins like vimwiki obsidian-nvim and norg
 - lsp configuration with autocomplete for various programming languages(like java, javascript , go)
 - Good looks
 
 * Instalation
-** Linux
-#+BEGIN_SRC bash
-mkdir ~/.config/nvim
-git clone https://github.com/Florin12er/Super-nvim.git ~/.config/nvim
-#+END_SRC
+****** Linux
+    #+BEGIN_SRC bash
+    mkdir ~/.config/nvim
+    git clone https://github.com/Florin12er/Super-nvim.git ~/.config/nvim
+    #+END_SRC
+
+       
 

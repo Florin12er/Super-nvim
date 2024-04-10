@@ -42,6 +42,7 @@ end)
 
 vim.api.nvim_set_keymap("n", "<leader>ne", ":Telescope nerdy<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>ej", ":Telescope emoji<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>oms", ":Telescope orgmode search_headings<CR>", { noremap = true, silent = true })
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fr", builtin.oldfiles, {})
@@ -174,7 +175,6 @@ vim.keymap.set("n", "<leader>or", ":ObsidianRename<CR>", { noremap = true, silen
 vim.keymap.set("n", "<leader>on", ":ObsidianNew<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>os", ":ObsidianSearch<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ol", ":ObsidianLink<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>te", ":EasyTablesImportThisTable<CR>", {noremap = true , silent = true})
 
 --ollama ai
 vim.keymap.set({ "n", "v" }, "<leader>ai", ":Gen<CR>")
@@ -199,3 +199,9 @@ vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
 vim.keymap.set("n", "<leader>-", ":Triptych<CR>", { silent = true })
 --hard mode
 vim.keymap.set("n", "<leader>hm", ":Hardtime toggle<CR>", { noremap = true, silent = true })
+
+
+--table mode
+vim.api.nvim_set_keymap('n', '<Leader>tm', ':TableModeToggle<CR>', {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>te", ":EasyTablesImportThisTable<CR>", {noremap = true , silent = true})
+
