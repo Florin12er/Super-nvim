@@ -236,7 +236,6 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter-context",
 		"norcalli/nvim-colorizer.lua",
 		"nvim-treesitter/nvim-treesitter",
-		"brenoprata10/nvim-highlight-colors",
 		"uga-rosa/ccc.nvim",
 		"maxmellon/vim-jsx-pretty",
 

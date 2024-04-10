@@ -3,7 +3,6 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
-
 vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -22,6 +21,7 @@ vim.cmd("set foldcolumn=0")
 vim.cmd("set relativenumber")
 vim.cmd("set signcolumn=no")
 vim.cmd("set cursorline")
+vim.cmd("set conceallevel=2")
 vim.cmd("autocmd FileType org setlocal nofoldenable")
 vim.cmd("TransparentEnable")
 
@@ -36,6 +36,7 @@ vim.cmd([[autocmd VimEnter * LspStart<CR>]])
 vim.opt.updatetime = 50
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt_local.conceallevel = 2
+
 vim.opt.concealcursor = "nc"
 --vim.opt.colorcolumn = "100"
 vim.cmd("highlight ColorColumn ctermbg=none guibg=#89b4fa")
@@ -51,7 +52,5 @@ vim.ui.select = require("dropbar.utils.menu").select
 
 require("ccc").setup()
 require("autoclose").setup()
-require("triptych").setup()
-
-
-
+-- require("triptych").setup()
+require'colorizer'.setup()

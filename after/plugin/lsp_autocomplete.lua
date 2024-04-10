@@ -1,5 +1,4 @@
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local on_attach = require("cmp_nvim_lsp").on_attach
 local lspconfig = require("lspconfig")
 require("mason").setup()
 require("mason-lspconfig").setup({
@@ -85,11 +84,11 @@ require("java").setup({
 	},
 })
 
-lspconfig.ltex.setup({
-	capabilities = capabilities,
-	cmd = { "ltex-ls" },
-	filetypes = { "tex", "plaintex", "bib", "bibtex", "markdown" },
-})
+-- lspconfig.ltex.setup({
+-- 	capabilities = capabilities,
+-- 	cmd = { "ltex-ls" },
+-- 	filetypes = { "tex", "plaintex", "bib", "bibtex", "markdown" },
+-- })
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
 })
