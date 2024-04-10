@@ -84,11 +84,11 @@ require("java").setup({
 	},
 })
 
--- lspconfig.ltex.setup({
--- 	capabilities = capabilities,
--- 	cmd = { "ltex-ls" },
--- 	filetypes = { "tex", "plaintex", "bib", "bibtex", "markdown" },
--- })
+lspconfig.ltex.setup({
+	capabilities = capabilities,
+	cmd = { "ltex-ls" },
+	filetypes = { "tex", "plaintex", "bib", "bibtex", "markdown" , "org"},
+})
 lspconfig.tsserver.setup({
 	capabilities = capabilities,
 })

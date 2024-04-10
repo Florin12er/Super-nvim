@@ -52,5 +52,6 @@ vim.ui.select = require("dropbar.utils.menu").select
 
 require("ccc").setup()
 require("autoclose").setup()
--- require("triptych").setup()
+require("triptych").setup()
 require'colorizer'.setup()
+require("markdown").setup()

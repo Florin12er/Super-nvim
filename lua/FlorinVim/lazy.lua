@@ -144,11 +144,6 @@ require("lazy").setup({
 		"Myzel394/easytables.nvim",
 		"dhruvasagar/vim-table-mode",
 		{
-			"vhyrro/luarocks.nvim",
-			priority = 1000,
-			config = true,
-		},
-		{
 			"epwalsh/obsidian.nvim",
 			version = "*",
 			lazy = true,
@@ -160,7 +155,7 @@ require("lazy").setup({
 		{
 			"lukas-reineke/headlines.nvim",
 			dependencies = "nvim-treesitter/nvim-treesitter",
-			config = true, -- or `opts = {}`
+			opts = {},
 		},
 		----org mode
 		{
@@ -169,26 +164,22 @@ require("lazy").setup({
 			ft = { "org" },
 		},
 		"akinsho/org-bullets.nvim",
-		"nvim-neorg/neorg-telescope",
-		"nvim-neorg/norg-specs",
-		{
-			"nvim-neorg/neorg",
-			lazy = false,
-			dependencies = {
-				"nvim-neorg/norg-specs",
-				"nvim-lua/plenary.nvim",
-				"nvim-neorg/neorg-telescope",
-				"luarocks.nvim",
-			},
-		},
 		----live server , markdown preview, markmap
 		{
 			"iamcco/markdown-preview.nvim",
 			cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-			ft = { "markdown" },
-			build = function()
-				vim.fn["mkdp#util#install"]()
+			build = "cd app && yarn install",
+			init = function()
+				vim.g.mkdp_filetypes = { "markdown" }
 			end,
+			ft = { "markdown" },
+		},
+		{
+			"tadmccorkle/markdown.nvim",
+			ft = "markdown", -- or 'event = "VeryLazy"'
+			opts = {
+				-- configuration here or empty for defaults
+			},
 		},
 		{
 			"barrett-ruth/live-server.nvim",

@@ -1,25 +1,15 @@
 * Super Nvim
-* Table of contents :toc:
+* Table of contents                                                        :toc:
 - [[#super-nvim][Super Nvim]]
 - [[#description][Description:]]
 - [[#features][Features:]]
-- [[#instalation][Instalation]]
+- [[#installation][Installation]]
   - [[#linux][Linux]]
 
 * Description:
 - this is my neovim configuratino but has so many plugins and configuration I can basically call it an neovim distribution
 - If you still this feel free to change anything here I don't care.
 - You can read the plugins in my lazy.lua file.
-
-
-
-* Features:
-- Lots of beautifull colorschemes you can change your theme by either pressing space + c + s or by going to the file color.lua
-- Very efficent file navigation with telescope
-- Emoji: two emoji plugins for your emoji needs
-- lots of notes plugins like vimwiki obsidian-nvim and norg
-- lsp configuration with autocomplete for various programming languages(like java, javascript , go)
-- Good looks
 
 * Instalation
 ****** Linux
@@ -29,4 +19,11 @@
     #+END_SRC
 
        
+* Features:
+- Lots of beautifull colorschemes you can change your theme by either pressing space + c + s or by going to the file color.lua
+- Very efficent file navigation with telescope
+- Emoji: two emoji plugins for your emoji needs
+- lots of notes plugins like vimwiki obsidian-nvim and norg
+- lsp configuration with autocomplete for various programming languages(like java, javascript , go)
+- Good looks
 
