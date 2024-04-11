@@ -150,8 +150,7 @@ require("lazy").setup({
 		{
 			"3rd/image.nvim",
 			dependencies = { "luarocks.nvim" },
-			config = function()
-			end,
+			config = function() end,
 		},
 		"preservim/vim-pencil",
 		"Myzel394/easytables.nvim",
@@ -171,6 +170,13 @@ require("lazy").setup({
 			opts = {},
 		},
 		----org mode
+		{
+			"nvim-neorg/neorg",
+			dependencies = { "luarocks.nvim" },
+			lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+			version = "v7.0.0",
+			config = true,
+		},
 		{
 			"nvim-orgmode/orgmode",
 			event = "VeryLazy",

@@ -18,7 +18,6 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.opt.termguicolors = true
 
-
 nvimtree.setup({
 	disable_netrw = true,
 	on_attach = on_attach,
@@ -27,7 +26,7 @@ nvimtree.setup({
 	sync_root_with_cwd = true,
 	view = {
 		relativenumber = true,
-        side = "right",
+		side = "right",
 	},
 	-- filters = {
 	--   custom = { "^.git$" },
@@ -36,4 +35,12 @@ nvimtree.setup({
 	--   indent_width = 1,
 	-- },
 })
-require("float-preview").setup({})
+require("float-preview").setup({
+	toggled_on = false,
+	window = {
+		style = "minimal",
+		relative = "win",
+		border = "rounded",
+		wrap = false,
+	},
+})

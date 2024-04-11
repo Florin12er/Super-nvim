@@ -1,10 +1,9 @@
 * Super Nvim
-* Table of contents                                                        :toc:
+* Table of content :toc:
 - [[#super-nvim][Super Nvim]]
 - [[#description][Description:]]
+- [[#instalation][Instalation]]
 - [[#features][Features:]]
-- [[#installation][Installation]]
-  - [[#linux][Linux]]
 
 * Description:
 - this is my neovim configuratino but has so many plugins and configuration I can basically call it an neovim distribution
@@ -26,4 +25,5 @@
 - lots of notes plugins like vimwiki obsidian-nvim and norg
 - lsp configuration with autocomplete for various programming languages(like java, javascript , go)
 - Good looks
+
 
