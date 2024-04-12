@@ -5,6 +5,7 @@
 - [[#instalation][Instalation]]
 - [[#features][Features:]]
 
+---
 * Description:
 - this is my neovim configuratino but has so many plugins and configuration I can basically call it an neovim distribution
 - If you still this feel free to change anything here I don't care.
@@ -25,5 +26,7 @@
 - lots of notes plugins like vimwiki obsidian-nvim and norg
 - lsp configuration with autocomplete for various programming languages(like java, javascript , go)
 - Good looks
+
+
 
 

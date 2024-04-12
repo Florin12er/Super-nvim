@@ -44,6 +44,7 @@ require("lazy").setup({
 			priority = 1000,
 			opts = {},
 		},
+        "joshdick/onedark.vim",
 		{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 		{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, enabled = true, opts = ... },
 		"akai54/2077.nvim",
@@ -287,15 +288,7 @@ require("lazy").setup({
 				lazy = true,
 			},
 		},
-		{
-			"simonmclean/triptych.nvim",
-			event = "VeryLazy",
-			dependencies = {
-				"nvim-lua/plenary.nvim", -- required
-				"nvim-tree/nvim-web-devicons", -- optional
-			},
-		},
-		{
+				{
 			"gsuuon/tshjkl.nvim",
 			config = true,
 		},
