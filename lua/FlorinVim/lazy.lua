@@ -105,6 +105,7 @@ require("lazy").setup({
 		"onsails/lspkind.nvim",
 
 		--telescope plugins
+        "junegunn/fzf.vim",
 		"joaomsa/telescope-orgmode.nvim",
 		{
 			"mrjones2014/tldr.nvim",
@@ -154,6 +155,7 @@ require("lazy").setup({
 			config = function() end,
 		},
 		"preservim/vim-pencil",
+        'ekickx/clipboard-image.nvim',
 		"Myzel394/easytables.nvim",
 		"dhruvasagar/vim-table-mode",
 		{

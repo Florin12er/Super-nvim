@@ -11,6 +11,7 @@ cmp.setup({
 		{ name = "neorg", filetype = { "norg", "org" } },
 		{ name = "treesitter" },
 		{ name = "emoji" },
+        { name = 'mkdnflow' },
 		{ name = "dictionary", keyword_length = 2 },
 		{ name = "path" },
 		{ name = "buffer-lines" },

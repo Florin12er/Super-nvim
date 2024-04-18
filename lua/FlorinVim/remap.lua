@@ -181,8 +181,9 @@ vim.keymap.set({ "n", "v" }, "<leader>ai", ":Gen<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>gc", ":Gen Chat<CR>")
 vim.keymap.set({ "n", "v" }, "<leader>ge", ":Gen Enhance_Grammar_Spelling<CR>")
 
--- save fold
-
+-- fold
+vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 vim.keymap.set("n", "zs", ":mkview<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "zl", ":loadview<CR>", { noremap = true, silent = true })
 
@@ -200,8 +201,6 @@ vim.keymap.set("n", "<leader>-", ":Triptych<CR>", { silent = true })
 --hard mode
 vim.keymap.set("n", "<leader>hm", ":Hardtime toggle<CR>", { noremap = true, silent = true })
 
-
 --table mode
-vim.api.nvim_set_keymap('n', '<Leader>tm', ':TableModeToggle<CR>', {noremap = true, silent = true})
-vim.keymap.set("n", "<leader>te", ":EasyTablesImportThisTable<CR>", {noremap = true , silent = true})
-
+vim.api.nvim_set_keymap("n", "<Leader>tm", ":TableModeToggle<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>te", ":EasyTablesImportThisTable<CR>", { noremap = true, silent = true })

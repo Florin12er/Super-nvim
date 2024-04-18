@@ -31,8 +31,8 @@ require("obsidian").setup({
 require("mkdnflow").setup({})
 require("easytables").setup({})
 require("orgmode").setup({
-	org_agenda_files = "~/orgfiles/**/*",
-	org_default_notes_file = "~/orgfiles/refile.org",
+	org_agenda_files = "~/personal/Notes/**/*",
+	org_default_notes_file = "~/personal/Notes/refile.org",
 })
 --org bullets for markdown and org
 require("org-bullets").setup()
