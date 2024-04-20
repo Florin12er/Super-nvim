@@ -44,7 +44,20 @@ require("lazy").setup({
 			priority = 1000,
 			opts = {},
 		},
-        "joshdick/onedark.vim",
+        "projekt0n/github-nvim-theme",
+		{
+			"neanias/everforest-nvim",
+			version = false,
+			lazy = false,
+			priority = 1000, -- make sure to load this before all the other start plugins
+			-- Optional; default configuration will be used if setup isn't called.
+			config = function()
+				require("everforest").setup({
+					-- Your config here
+				})
+			end,
+		},
+		"joshdick/onedark.vim",
 		{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 		{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, enabled = true, opts = ... },
 		"akai54/2077.nvim",
@@ -98,6 +111,7 @@ require("lazy").setup({
 		----dropbar
 		{
 			"Bekaboo/dropbar.nvim",
+            enabled = false,
 			dependencies = {
 				"nvim-telescope/telescope-fzf-native.nvim",
 			},
@@ -105,7 +119,7 @@ require("lazy").setup({
 		"onsails/lspkind.nvim",
 
 		--telescope plugins
-        "junegunn/fzf.vim",
+		"junegunn/fzf.vim",
 		"joaomsa/telescope-orgmode.nvim",
 		{
 			"mrjones2014/tldr.nvim",
@@ -155,7 +169,7 @@ require("lazy").setup({
 			config = function() end,
 		},
 		"preservim/vim-pencil",
-        'ekickx/clipboard-image.nvim',
+		"ekickx/clipboard-image.nvim",
 		"Myzel394/easytables.nvim",
 		"dhruvasagar/vim-table-mode",
 		{
@@ -290,7 +304,7 @@ require("lazy").setup({
 				lazy = true,
 			},
 		},
-				{
+		{
 			"gsuuon/tshjkl.nvim",
 			config = true,
 		},

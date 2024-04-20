@@ -47,7 +47,7 @@ vim.cmd("let test#strategy = 'vimux'")
 
 --[[ require("codeium").setup({}) ]]
 require("nvim-surround").setup({})
-vim.ui.select = require("dropbar.utils.menu").select
+--vim.ui.select = require("dropbar.utils.menu").select
 
 require("ccc").setup()
 require("autoclose").setup()
