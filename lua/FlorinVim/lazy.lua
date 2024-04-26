@@ -44,7 +44,7 @@ require("lazy").setup({
 			priority = 1000,
 			opts = {},
 		},
-        "projekt0n/github-nvim-theme",
+		"projekt0n/github-nvim-theme",
 		{
 			"neanias/everforest-nvim",
 			version = false,
@@ -111,7 +111,7 @@ require("lazy").setup({
 		----dropbar
 		{
 			"Bekaboo/dropbar.nvim",
-            enabled = false,
+			enabled = false,
 			dependencies = {
 				"nvim-telescope/telescope-fzf-native.nvim",
 			},
@@ -151,7 +151,6 @@ require("lazy").setup({
 			},
 			enabled = false,
 		},
-
 		--notes plugins
 
 		----markdown

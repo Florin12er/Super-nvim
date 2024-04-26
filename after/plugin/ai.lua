@@ -1,5 +1,5 @@
 require("gen").setup({
-	model = "llama2", -- The default model to use.
+	model = "llama3", -- The default model to use.
 	host = "localhost", -- The host running the Ollama service.
 	port = "11434", -- The port on which the Ollama service is listening.
 	display_mode = "split", -- The display mode. Can be "float" or "split".
