@@ -24,11 +24,15 @@ require("mason-lspconfig").setup({
 		"cssmodules_ls",
 		"clangd",
 		"jdtls",
+        "csharp_ls"
 	},
 })
 
 lspconfig.lua_ls.setup({
 	capabilities = capabilities,
+})
+lspconfig.csharp_ls.setup({
+    capabilities = capabilities,
 })
 lspconfig.pylsp.setup({
 	capabilities = capabilities,

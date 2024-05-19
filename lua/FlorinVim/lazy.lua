@@ -44,6 +44,11 @@ require("lazy").setup({
 			priority = 1000,
 			opts = {},
 		},
+		{
+			"roobert/palette.nvim",
+			lazy = false,
+			priority = 1000,
+		},
 		"projekt0n/github-nvim-theme",
 		{
 			"neanias/everforest-nvim",
@@ -125,7 +130,10 @@ require("lazy").setup({
 			"mrjones2014/tldr.nvim",
 			dependencies = { "nvim-telescope/telescope.nvim" },
 		},
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+		},
 		----emojis
 		"xiyaowong/telescope-emoji.nvim",
 		{
