@@ -205,4 +205,3 @@ vim.keymap.set("n", "<leader>te", ":EasyTablesImportThisTable<CR>", { noremap = 
 
 -- navigation
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
-

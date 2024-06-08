@@ -9,15 +9,15 @@
       custom_palettes = {
         main = {
           custom_main_palette = {
-            color0 = "#0F0A1F",
-            color1 = "#25355C",
-            color2 = "#876186",
-            color3 = "#C3CEDE",
-            color4 = "#0F0A1F",
-            color5 = "#25355C",
-            color6 = "#876186",
-            color7 = "#C3CEDE",
-            color8 = "#0F0A1F",
+            color0 = "#150E3A",
+            color1 = "#3F384C",
+            color2 = "#817B63",
+            color3 = "#E7DBBC",
+            color4 = "#150E3A",
+            color5 = "#3F384C",
+            color6 = "#817B63",
+            color7 = "#E7DBBC",
+            color8 = "#150E3A",
           },
         },
         accent = {
@@ -25,7 +25,7 @@
             accent0 = "#FFFFFF",
             accent1 = "#FFFFFF",
             accent2 = "#FFFFFF",
-            accent3 = "#080707",
+            accent3 = "#070708",
             accent4 = "#FFFFFF",
             accent5 = "#FFFFFF",
             accent6 = "#FFFFFF",
