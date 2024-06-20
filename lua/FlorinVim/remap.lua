@@ -116,18 +116,6 @@ vim.api.nvim_set_keymap("n", "<C-y>", "<C-w><", { noremap = true, silent = true 
 
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {})
 
-vim.keymap.set("i", "<C-c>", function()
-	return vim.fn["codeium#Accept"]()
-end, { expr = true })
-vim.keymap.set("i", "<C-w>", function()
-	return vim.fn["codeium#Clear"]()
-end, { expr = true })
-vim.keymap.set("i", "<C-s>", function()
-	return vim.fn["codeium#CycleCompletions"](1)
-end, { expr = true })
-vim.keymap.set("i", "<C-p>", function()
-	return vim.fn["codeium#CycleCompletions"](-1)
-end, { expr = true })
 --lsp
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),

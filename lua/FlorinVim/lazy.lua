@@ -146,19 +146,7 @@ require("lazy").setup({
 		},
 
 		--ai plugins
-		{
-			"Exafunction/codeium.vim",
-			enabled = false,
-		},
 		"David-Kunz/gen.nvim",
-		{
-			"Exafunction/codeium.nvim",
-			dependencies = {
-				"nvim-lua/plenary.nvim",
-				"hrsh7th/nvim-cmp",
-			},
-			enabled = false,
-		},
 		--notes plugins
 
 		----markdown
