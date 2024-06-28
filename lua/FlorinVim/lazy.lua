@@ -125,7 +125,6 @@ require("lazy").setup({
 
 		--telescope plugins
 		"junegunn/fzf.vim",
-		"joaomsa/telescope-orgmode.nvim",
 		{
 			"mrjones2014/tldr.nvim",
 			dependencies = { "nvim-telescope/telescope.nvim" },
@@ -180,19 +179,6 @@ require("lazy").setup({
 			"lukas-reineke/headlines.nvim",
 			dependencies = "nvim-treesitter/nvim-treesitter",
 			opts = {},
-		},
-		----org mode
-		{
-			"nvim-neorg/neorg",
-			dependencies = { "luarocks.nvim" },
-			lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
-			version = "v7.0.0",
-			config = true,
-		},
-		{
-			"nvim-orgmode/orgmode",
-			event = "VeryLazy",
-			ft = { "org" },
 		},
 		"akinsho/org-bullets.nvim",
 		----live server , markdown preview, markmap

@@ -13,4 +13,3 @@ require("telescope").setup({
 -- load_extension, somewhere after setup function:
 require("telescope").load_extension("emoji")
 require("telescope").load_extension("nerdy")
-require('telescope').load_extension('orgmode')
