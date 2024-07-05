@@ -1,10 +1,8 @@
-require("cmp-npm").setup({})
 local cmp = require("cmp")
 cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
-		{ name = "npm", keyword_length = 4 },
 		{ name = "cmp_lsp_signature_help" },
 		{ name = "codeium" },
 		{ name = "orgmode" },

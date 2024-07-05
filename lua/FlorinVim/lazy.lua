@@ -18,11 +18,6 @@ require("lazy").setup({
 		"amarakon/nvim-cmp-buffer-lines",
 		"hrsh7th/cmp-buffer",
 		"ray-x/cmp-treesitter",
-		{
-			"David-Kunz/cmp-npm",
-			dependencies = { "nvim-lua/plenary.nvim" },
-			ft = "json",
-		},
 		"amarakon/nvim-cmp-fonts",
 		"hrsh7th/cmp-emoji",
 		"uga-rosa/cmp-dictionary",
