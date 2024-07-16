@@ -99,23 +99,6 @@ require("lazy").setup({
 			dependencies = "kevinhwang91/promise-async",
 		},
 		----better loking command mode
-		{
-			"folke/noice.nvim",
-			event = "VeryLazy",
-			opts = {},
-			dependencies = {
-				"MunifTanjim/nui.nvim",
-				"rcarriga/nvim-notify",
-			},
-		},
-		----dropbar
-		{
-			"Bekaboo/dropbar.nvim",
-			enabled = false,
-			dependencies = {
-				"nvim-telescope/telescope-fzf-native.nvim",
-			},
-		},
 		"onsails/lspkind.nvim",
 
 		--telescope plugins
@@ -138,10 +121,6 @@ require("lazy").setup({
 			},
 			cmd = "Nerdy",
 		},
-
-		--ai plugins
-		"David-Kunz/gen.nvim",
-		--notes plugins
 
 		----markdown
 		"jakewvincent/mkdnflow.nvim",

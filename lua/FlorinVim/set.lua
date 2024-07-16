@@ -36,12 +36,9 @@ vim.cmd([[autocmd VimEnter * LspStart<CR>]])
 vim.opt.updatetime = 50
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.conceallevel = 2
-vim.opt.concealcursor = 'nc'
+vim.opt.concealcursor = "nc"
 --vim.opt.colorcolumn = "100"
 vim.cmd("highlight ColorColumn ctermbg=none guibg=#89b4fa")
-require("notify").setup({
-	background_colour = "#000000",
-})
 require("duckytype").setup({})
 vim.cmd("let test#strategy = 'vimux'")
 
@@ -50,5 +47,5 @@ require("nvim-surround").setup({})
 
 require("ccc").setup()
 require("autoclose").setup()
-require'colorizer'.setup()
+require("colorizer").setup()
 require("markdown").setup()

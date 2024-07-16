@@ -25,12 +25,27 @@ require("mason-lspconfig").setup({
 		"clangd",
 		"jdtls",
 		"csharp_ls",
+		"templ",
 	},
 })
+
+vim.filetype.add({ extension = { ejs = "ejs" } })
+vim.filetype.add({ extension = { templ = "templ" } })
+-- Define a custom on_attach function
+local function custom_on_attach(client, bufnr)
+	-- Disable the specific capabilities that trigger the warnings
+	client.server_capabilities.workspace = false
+	client.server_capabilities.workspaceFolder = false
+	client.server_capabilities.dynamicRegistration = false
+end
 
 lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 })
+lspconfig.templ.setup({
+	capabilities = capabilities,
+})
+
 lspconfig.csharp_ls.setup({
 	capabilities = capabilities,
 })
@@ -124,11 +139,9 @@ lspconfig.tsserver.setup({
 })
 lspconfig.eslint.setup({
 	capabilities = capabilities,
+	on_attach = custom_on_attach,
 })
 lspconfig.cssls.setup({
-	capabilities = capabilities,
-})
-lspconfig.eslint.setup({
 	capabilities = capabilities,
 })
 lspconfig.kotlin_language_server.setup({
@@ -150,11 +163,11 @@ lspconfig.html.setup({
 })
 lspconfig.emmet_ls.setup({
 	capabilities = capabilities,
-	filetypes = { "html", "htmldjango", "markdown", "ejs" },
+	filetypes = { "html", "htmldjango", "markdown", "ejs", "templ" },
 })
 lspconfig.emmet_language_server.setup({
 	capabilities = capabilities,
-	filetypes = { "html", "htmldjango", "markdown" },
+	filetypes = { "html", "htmldjango", "markdown", "ejs", "templ" },
 })
 lspconfig.rust_analyzer.setup({
 	capabilities = capabilities,
@@ -171,8 +184,19 @@ lspconfig.volar.setup({
 })
 lspconfig.tailwindcss.setup({
 	capabilities = capabilities,
+	filetypes = { "html","ejs", "react", "templ", "astro", "javascript" },
+	settings = {
+		tailwindCSS = {
+			includeLanguages = {
+				templ = "html",
+                ejs = "ejs"
+			},
+		},
+	},
+	on_attach = custom_on_attach,
 })
 lspconfig.htmx.setup({
 	capabilities = capabilities,
+	filetypes = { "html", "templ" },
 })
 require("luasnip.loaders.from_vscode").lazy_load()
