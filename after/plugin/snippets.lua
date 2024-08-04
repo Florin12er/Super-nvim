@@ -3,17 +3,11 @@ cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
-		{ name = "cmp_lsp_signature_help" },
 		{ name = "codeium" },
-		{ name = "orgmode" },
-		{ name = "neorg", filetype = { "norg", "org" } },
 		{ name = "treesitter" },
-		{ name = "emoji" },
-        { name = 'mkdnflow' },
-		{ name = "dictionary", keyword_length = 2 },
-		{ name = "path" },
+		{ name = "mkdnflow" },
 		{ name = "buffer-lines" },
-		{ name = "fonts", filetype = { "conf", "config", "css" } },
+		{ name = "bulma" },
 		{
 			name = "buffer",
 			option = {
@@ -52,15 +46,26 @@ cmp.setup({
 			end
 		end, { "i", "s" }),
 	}),
-})
-
-cmp.setup({
 	formatting = {
-		format = require("lspkind").cmp_format({
-			mode = "symbol",
-			maxwidth = 50,
-			ellipsis_char = "...",
-			symbol_map = { Codeium = "" },
-		}),
+		format = function(entry, item)
+			local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+			item = require("lspkind").cmp_format({
+				mode = "symbol",
+				maxwidth = 50,
+				ellipsis_char = "...",
+				symbol_map = { Codeium = "" },
+			})(entry, item)
+			if entry.source.name == "bulma" then
+				item.menu = entry.completion_item.menu
+				item.documentation = {
+					kind = "markdown",
+					value = "This is a Bulma snippet. Bulma is a modern CSS framework based on Flexbox.",
+				}
+			elseif color_item.abbr_hl_group then
+				item.kind_hl_group = color_item.abbr_hl_group
+				item.kind = color_item.abbr
+			end
+			return item
+		end,
 	},
 })

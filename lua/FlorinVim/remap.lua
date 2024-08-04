@@ -6,10 +6,10 @@ vim.keymap.set("n", "<leader>cl", vim.cmd.HighlightColorsOn)
 vim.keymap.set("n", "<leader>q", vim.cmd.q)
 
 vim.keymap.set("n", "<leader>wq", vim.cmd.wq)
-vim.keymap.set("n", "<leader>lv", vim.cmd.LiveServerStart)
 vim.keymap.set("n", "<leader>lq", vim.cmd.LiveServerStop)
 
 vim.keymap.set("n", "gt", ":LazyGit<CR>")
+vim.keymap.set("n", "<leader>g", ":Git<CR>")
 
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
@@ -38,34 +38,19 @@ end)
 
 --telescope
 
-vim.api.nvim_set_keymap("n", "<leader>ne", ":Telescope nerdy<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>ej", ":Telescope emoji<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>oms", ":Telescope orgmode search_headings<CR>", { noremap = true, silent = true })
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fr", builtin.oldfiles, {})
 vim.keymap.set("n", "<leader>gf", builtin.git_files, {})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>cs", builtin.colorscheme, {})
-vim.keymap.set("n", "<leader>cc", ":CccPick<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>bb", builtin.buffers, {})
 
 vim.keymap.set("n", "<leader>fs", function()
 	builtin.grep_string({ search = vim.fn.input("Find > ") })
 end)
 vim.keymap.set("n", "<leader>so", ":SymbolsOutline<CR>", { noremap = true, silent = true })
-
---terminal
--- exit terminal mode
-vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true })
-
--- close terminal
-vim.api.nvim_set_keymap("t", "<C-q>", "<C-\\><C-n>:q<CR>", { noremap = true, silent = true })
-
-require("toggleterm").setup({
-	shade_terminals = false,
-})
-vim.keymap.set("n", "<leader>t", ":ToggleTerm<CR>", { noremap = true, silent = true })
 --harpoon
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
@@ -143,35 +128,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
--- live server
-vim.keymap.set("n", "<leader>lv", vim.cmd.LiveServerStart)
-vim.keymap.set("n", "<leader>lq", vim.cmd.LiveServerStop)
-
 --git sign
 vim.keymap.set("n", "<leader>gs", ":Gitsigns toggle_signs<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { noremap = true, silent = true })
 vim.cmd("Gitsigns toggle_signs")
 vim.cmd("Gitsigns toggle_current_line_blame")
-
---zen mode
-vim.keymap.set("n", "<leader>z", ":ZenMode<CR>", { noremap = true, silent = true })
-
---obsidian
-vim.keymap.set("n", "<leader>or", ":ObsidianRename<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>on", ":ObsidianNew<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>os", ":ObsidianSearch<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>ol", ":ObsidianLink<CR>", { noremap = true, silent = true })
-
---ollama ai
-vim.keymap.set({ "n", "v" }, "<leader>ai", ":Gen<CR>")
-vim.keymap.set({ "n", "v" }, "<leader>gc", ":Gen Chat<CR>")
-vim.keymap.set({ "n", "v" }, "<leader>ge", ":Gen Enhance_Grammar_Spelling<CR>")
-
--- fold
-vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-vim.keymap.set("n", "zs", ":mkview<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "zl", ":loadview<CR>", { noremap = true, silent = true })
 
 -- vim test
 
@@ -181,15 +142,66 @@ vim.keymap.set("n", "<leader>ta", ":TestSuite<CR>", { noremap = true, silent = t
 vim.keymap.set("n", "<leader>tl", ":TestVisit<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>tl", ":TestLast<CR>", { noremap = true, silent = true })
 
---file manager
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
-vim.keymap.set("n", "<leader>-", ":Triptych<CR>", { silent = true })
---hard mode
-vim.keymap.set("n", "<leader>hm", ":Hardtime toggle<CR>", { noremap = true, silent = true })
-
 --table mode
 vim.api.nvim_set_keymap("n", "<Leader>tm", ":TableModeToggle<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>te", ":EasyTablesImportThisTable<CR>", { noremap = true, silent = true })
 
 -- navigation
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
+
+-- netrw
+
+-- Open Netrw in the current window
+vim.keymap.set("n", "<leader>e", ":Explore<CR>", { noremap = true, silent = true })
+-- Open Netrw in a vertical split
+vim.keymap.set("n", "<leader>ev", ":Vexplore<CR>", { noremap = true, silent = true })
+-- Open Netrw in a horizontal split
+vim.keymap.set("n", "<leader>eh", ":Sexplore<CR>", { noremap = true, silent = true })
+-- Open Netrw in a new tab
+vim.keymap.set("n", "<leader>et", ":Texplore<CR>", { noremap = true, silent = true })
+-- Open Netrw in the current window, showing the directory of the current file
+vim.keymap.set("n", "<leader>ef", ":Explore %:p:h<CR>", { noremap = true, silent = true })
+-- Set up an autocommand to apply these keybinds only in Netrw buffers
+vim.api.nvim_create_autocmd("filetype", {
+	pattern = "netrw",
+	desc = "Better mappings for netrw",
+	callback = function()
+		local bind = function(lhs, rhs)
+			vim.keymap.set("n", lhs, rhs, { remap = true, buffer = true })
+		end
+		-- edit new file
+		bind("n", "%")
+		-- rename file
+		bind("r", "R")
+		-- create a new directory
+		bind("N", "d") -- 'N' for new directory
+		-- remove file or directory
+		bind("R", "D") -- 'R' for remove
+		-- move file or directory
+		bind("m", "m")
+		-- copy file or directory
+		bind("c", "mc")
+		-- open file in vertical split
+		bind("V", "v")
+		-- open file in horizontal split
+		bind("S", "o")
+		-- open file in new tab
+		bind("T", "t")
+		-- go up one directory
+		bind("u", "-")
+		-- toggle hidden files
+		bind(".", "gh")
+		-- refresh the directory listing
+		bind("R", "<C-l>")
+		-- open file with system default application
+		bind("x", "gx")
+		-- toggle between thin, long, wide, and tree listings
+		bind("I", "i")
+		-- open preview window
+		bind("P", "p")
+		-- close preview window
+		bind("Q", "P")
+		-- close netrw and return to previous buffer
+		bind("q", ":Rexplore<CR>")
+	end,
+})

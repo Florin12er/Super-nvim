@@ -13,15 +13,14 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	{
 		--cmp plugins
+		"hrsh7th/nvim-cmp",
 		{ "hrsh7th/cmp-path" },
-		{ "hrsh7th/cmp-nvim-lsp-signature-help" },
 		"amarakon/nvim-cmp-buffer-lines",
+		{
+			"garyhurtz/cmp_bulma.nvim",
+		},
 		"hrsh7th/cmp-buffer",
 		"ray-x/cmp-treesitter",
-		"amarakon/nvim-cmp-fonts",
-		"hrsh7th/cmp-emoji",
-		"uga-rosa/cmp-dictionary",
-		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-nvim-lsp",
 		{ "rafamadriz/friendly-snippets" },
 		{
@@ -39,35 +38,13 @@ require("lazy").setup({
 			priority = 1000,
 			opts = {},
 		},
-		{
-			"roobert/palette.nvim",
-			lazy = false,
-			priority = 1000,
-		},
 		"projekt0n/github-nvim-theme",
-		{
-			"neanias/everforest-nvim",
-			version = false,
-			lazy = false,
-			priority = 1000, -- make sure to load this before all the other start plugins
-			-- Optional; default configuration will be used if setup isn't called.
-			config = function()
-				require("everforest").setup({
-					-- Your config here
-				})
-			end,
-		},
 		"joshdick/onedark.vim",
 		{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 		{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true, enabled = true, opts = ... },
-		"akai54/2077.nvim",
 		{ "rose-pine/neovim", name = "rose-pine", enabled = true },
-		{ "decaycs/decay.nvim", as = "decay" },
-		"marko-cerovac/material.nvim",
 		"Mofiqul/dracula.nvim",
 		"shaunsingh/nord.nvim",
-		"nyoom-engineering/oxocarbon.nvim",
-		"EdenEast/nightfox.nvim",
 		{
 			"scottmckendry/cyberdream.nvim",
 			lazy = false,
@@ -76,79 +53,34 @@ require("lazy").setup({
 		----transparency
 		"xiyaowong/transparent.nvim",
 
-		--look plugins
-
-		----DashBoard
-		{
-			"goolord/alpha-nvim",
-			dependencies = {
-				"nvim-tree/nvim-web-devicons",
-			},
-		},
-
 		"nvim-tree/nvim-web-devicons",
 		{
 			"nvim-lualine/lualine.nvim",
 			dependencies = { "nvim-tree/nvim-web-devicons" },
 		},
-		"simrat39/symbols-outline.nvim",
-
-		----better folding
-		{
-			"kevinhwang91/nvim-ufo",
-			dependencies = "kevinhwang91/promise-async",
-		},
-		----better loking command mode
 		"onsails/lspkind.nvim",
 
 		--telescope plugins
-		"junegunn/fzf.vim",
 		{
-			"mrjones2014/tldr.nvim",
-			dependencies = { "nvim-telescope/telescope.nvim" },
-		},
-		{
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-		},
-		----emojis
-		"xiyaowong/telescope-emoji.nvim",
-		{
-			"2kabhishek/nerdy.nvim",
-			dependencies = {
-				"stevearc/dressing.nvim",
-				"nvim-telescope/telescope.nvim",
-			},
-			cmd = "Nerdy",
+			"nvim-telescope/telescope.nvim",
+			tag = "0.1.8",
+			-- or                              , branch = '0.1.x',
+			dependencies = { "nvim-lua/plenary.nvim" },
 		},
 
+		"xiyaowong/telescope-emoji.nvim",
 		----markdown
 		"jakewvincent/mkdnflow.nvim",
 		{
-			"vhyrro/luarocks.nvim",
-			priority = 1001, -- this plugin needs to run before anything else
-			opts = {
-			},
+			"lervag/vimtex",
+			lazy = false, -- we don't want to lazy load VimTeX
+			-- tag = "v2.15", -- uncomment to pin to a specific release
+			init = function()
+				vim.g.vimtex_view_method = "zathura"
+			end,
 		},
-		"preservim/vim-pencil",
-		"ekickx/clipboard-image.nvim",
 		"Myzel394/easytables.nvim",
 		"dhruvasagar/vim-table-mode",
-		{
-			"epwalsh/obsidian.nvim",
-			version = "*",
-			lazy = true,
-			ft = "markdown",
-			dependencies = {
-				"nvim-lua/plenary.nvim",
-			},
-		},
-		{
-			"lukas-reineke/headlines.nvim",
-			dependencies = "nvim-treesitter/nvim-treesitter",
-			opts = {},
-		},
-		"akinsho/org-bullets.nvim",
 		----live server , markdown preview, markmap
 		{
 			"iamcco/markdown-preview.nvim",
@@ -166,28 +98,6 @@ require("lazy").setup({
 				-- configuration here or empty for defaults
 			},
 		},
-		{
-			"barrett-ruth/live-server.nvim",
-			build = "npm global add live-server",
-			config = true,
-		},
-		{
-			"Zeioth/markmap.nvim",
-			build = "yarn global add markmap-cli",
-			cmd = { "MarkmapOpen", "MarkmapSave", "MarkmapWatch", "MarkmapWatchStop" },
-			opts = {
-				html_output = "/tmp/markmap.html", -- (default) Setting a empty string "" here means: [Current buffer path].html
-				hide_toolbar = false, -- (default)
-				grace_period = 3600000, -- (default) Stops markmap watch after 60 minutes. Set it to 0 to disable the grace_period.
-			},
-			config = function(_, opts)
-				require("markmap").setup(opts)
-			end,
-		},
-		--zen mode
-		"folke/twilight.nvim",
-		"folke/zen-mode.nvim",
-
 		--lsp plugins
 		"mfussenegger/nvim-jdtls",
 		"simaxme/java.nvim",
@@ -196,36 +106,45 @@ require("lazy").setup({
 			"williamboman/mason-lspconfig.nvim",
 			"neovim/nvim-lspconfig",
 		},
-		"nvimtools/none-ls.nvim",
-
+		{
+			"nvimtools/none-ls.nvim",
+			dependencies = {
+				"nvimtools/none-ls-extras.nvim",
+			},
+		},
 		--git plugins
 		"lewis6991/gitsigns.nvim",
 		"tpope/vim-fugitive",
-		{
-			"kdheepak/lazygit.nvim",
-			dependencies = {
-				"nvim-lua/plenary.nvim",
-			},
-		},
 
 		--treesitter
-		"nvim-treesitter/nvim-treesitter-context",
-		"norcalli/nvim-colorizer.lua",
-		"nvim-treesitter/nvim-treesitter",
-		"uga-rosa/ccc.nvim",
+		"brenoprata10/nvim-highlight-colors",
+		{
+			"nvim-treesitter/nvim-treesitter",
+		},
 		"maxmellon/vim-jsx-pretty",
-
+		"Exafunction/codeium.vim",
+		{
+			"Exafunction/codeium.nvim",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+				"hrsh7th/nvim-cmp",
+			},
+			config = function()
+				require("codeium").setup({})
+			end,
+		},
 		--Productivity
 		{
 			"jsongerber/nvim-px-to-rem",
 			config = true,
 		},
 		"windwp/nvim-ts-autotag",
-		"m4xshen/autoclose.nvim",
 		{
-			"akinsho/toggleterm.nvim",
-			version = "*",
+			"windwp/nvim-autopairs",
+			event = "InsertEnter",
 			config = true,
+			-- use opts = {} for passing setup options
+			-- this is equalent to setup({}) function
 		},
 		"ThePrimeagen/harpoon",
 		"voldikss/vim-floaterm",
@@ -241,31 +160,13 @@ require("lazy").setup({
 			lazy = false,
 		},
 		{ "christoomey/vim-tmux-navigator", lazy = false },
-		{
-			"kylechui/nvim-surround",
-			version = "*",
-			event = "VeryLazy",
-		},
-		{
-			"nvim-tree/nvim-tree.lua",
-			dependencies = {
-				"JMarkin/nvim-tree.lua-float-preview",
-				lazy = true,
-			},
-		},
-		{
-			"gsuuon/tshjkl.nvim",
-			config = true,
-		},
 		--games
 		"ThePrimeagen/vim-be-good",
-		"kwakzalver/duckytype.nvim",
-		{
-			"m4xshen/hardtime.nvim",
-			dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-		},
-
 		-- miscellaneous
 		"nvim-lua/plenary.nvim",
+		{
+			"stevearc/dressing.nvim",
+			opts = {},
+		},
 	},
 })
