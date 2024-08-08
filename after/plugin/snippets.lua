@@ -8,6 +8,13 @@ cmp.setup({
 		{ name = "mkdnflow" },
 		{ name = "buffer-lines" },
 		{ name = "bulma" },
+		{ name = "vimtex" },
+		{
+			name = "latex_symbols",
+			option = {
+				strategy = 2, -- mixed
+			},
+		},
 		{
 			name = "buffer",
 			option = {

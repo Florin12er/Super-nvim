@@ -21,6 +21,8 @@ require("lazy").setup({
 		},
 		"hrsh7th/cmp-buffer",
 		"ray-x/cmp-treesitter",
+		"kdheepak/cmp-latex-symbols",
+		"micangl/cmp-vimtex",
 		"hrsh7th/cmp-nvim-lsp",
 		{ "rafamadriz/friendly-snippets" },
 		{

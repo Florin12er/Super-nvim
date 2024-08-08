@@ -205,3 +205,9 @@ vim.api.nvim_create_autocmd("filetype", {
 		bind("q", ":Rexplore<CR>")
 	end,
 })
+
+-- codeium
+
+vim.keymap.set("i", "<C-c>", function()
+	return vim.fn["codeium#Accept"]()
+end, { expr = true, silent = true })
