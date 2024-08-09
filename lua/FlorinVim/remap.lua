@@ -1,14 +1,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.api.nvim_set_keymap("n", "<Leader>ls", ":LspStart<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-s>", vim.cmd.w)
 vim.keymap.set("n", "<leader>cl", vim.cmd.HighlightColorsOn)
 vim.keymap.set("n", "<leader>q", vim.cmd.q)
 
-vim.keymap.set("n", "<leader>wq", vim.cmd.wq)
-vim.keymap.set("n", "<leader>lq", vim.cmd.LiveServerStop)
-
-vim.keymap.set("n", "gt", ":LazyGit<CR>")
 vim.keymap.set("n", "<leader>g", ":Git<CR>")
 
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
@@ -38,7 +33,6 @@ end)
 
 --telescope
 
-vim.api.nvim_set_keymap("n", "<leader>ej", ":Telescope emoji<CR>", { noremap = true, silent = true })
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fr", builtin.oldfiles, {})
@@ -50,7 +44,6 @@ vim.keymap.set("n", "<leader>bb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fs", function()
 	builtin.grep_string({ search = vim.fn.input("Find > ") })
 end)
-vim.keymap.set("n", "<leader>so", ":SymbolsOutline<CR>", { noremap = true, silent = true })
 --harpoon
 
 local mark = require("harpoon.mark")
@@ -86,12 +79,6 @@ vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true 
 
 vim.api.nvim_set_keymap("n", "<leader>hs", ":split<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>vs", ":vsplit<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-q>", "<C-w>q", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-i>", "<C-w>+", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-d>", "<C-w>-", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-c>", "<C-w>>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-y>", "<C-w><", { noremap = true, silent = true })
-
 --format
 
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {})
@@ -147,59 +134,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 -- netrw
 
 -- Open Netrw in the current window
-vim.keymap.set("n", "<leader>e", ":Explore<CR>", { noremap = true, silent = true })
--- Open Netrw in a vertical split
-vim.keymap.set("n", "<leader>ev", ":Vexplore<CR>", { noremap = true, silent = true })
--- Open Netrw in a horizontal split
-vim.keymap.set("n", "<leader>eh", ":Sexplore<CR>", { noremap = true, silent = true })
--- Open Netrw in a new tab
-vim.keymap.set("n", "<leader>et", ":Texplore<CR>", { noremap = true, silent = true })
--- Open Netrw in the current window, showing the directory of the current file
-vim.keymap.set("n", "<leader>ef", ":Explore %:p:h<CR>", { noremap = true, silent = true })
--- Set up an autocommand to apply these keybinds only in Netrw buffers
-vim.api.nvim_create_autocmd("filetype", {
-	pattern = "netrw",
-	desc = "Better mappings for netrw",
-	callback = function()
-		local bind = function(lhs, rhs)
-			vim.keymap.set("n", lhs, rhs, { remap = true, buffer = true })
-		end
-		-- edit new file
-		bind("n", "%")
-		-- rename file
-		bind("r", "R")
-		-- create a new directory
-		bind("N", "d") -- 'N' for new directory
-		-- remove file or directory
-		bind("R", "D") -- 'R' for remove
-		-- move file or directory
-		bind("m", "m")
-		-- copy file or directory
-		bind("c", "mc")
-		-- open file in vertical split
-		bind("V", "v")
-		-- open file in horizontal split
-		bind("S", "o")
-		-- open file in new tab
-		bind("T", "t")
-		-- go up one directory
-		bind("u", "-")
-		-- toggle hidden files
-		bind(".", "gh")
-		-- refresh the directory listing
-		bind("R", "<C-l>")
-		-- open file with system default application
-		bind("x", "gx")
-		-- toggle between thin, long, wide, and tree listings
-		bind("I", "i")
-		-- open preview window
-		bind("P", "p")
-		-- close preview window
-		bind("Q", "P")
-		-- close netrw and return to previous buffer
-		bind("q", ":Rexplore<CR>")
-	end,
-})
+vim.keymap.set("n", "<leader>e", ":Oil<CR>", { noremap = true, silent = true })
 
 -- codeium
 

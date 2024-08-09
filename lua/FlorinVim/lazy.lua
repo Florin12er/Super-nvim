@@ -34,6 +34,7 @@ require("lazy").setup({
 		},
 
 		--colors
+		{ "echasnovski/mini.icons", version = false },
 		{
 			"folke/tokyonight.nvim",
 			lazy = false,
@@ -70,7 +71,6 @@ require("lazy").setup({
 			dependencies = { "nvim-lua/plenary.nvim" },
 		},
 
-		"xiyaowong/telescope-emoji.nvim",
 		----markdown
 		"jakewvincent/mkdnflow.nvim",
 		{
@@ -147,6 +147,11 @@ require("lazy").setup({
 			config = true,
 			-- use opts = {} for passing setup options
 			-- this is equalent to setup({}) function
+		},
+		{
+			"stevearc/oil.nvim",
+			opts = {},
+			dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 		},
 		"ThePrimeagen/harpoon",
 		"voldikss/vim-floaterm",
