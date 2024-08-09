@@ -52,6 +52,7 @@ vim.keymap.set("n", "<leader>fs", function()
 end)
 vim.keymap.set("n", "<leader>so", ":SymbolsOutline<CR>", { noremap = true, silent = true })
 --harpoon
+
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
@@ -73,12 +74,6 @@ end)
 vim.keymap.set("n", "<M-5>", function()
 	ui.nav_file(5)
 end)
-
---px to rem
-
-vim.keymap.set({ "n", "v" }, "<leader>px", ":PxToRemLine<CR>", { noremap = true, silent = true })
-
---move windows
 
 -- Move to the window to the left
 -- vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })

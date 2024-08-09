@@ -4,6 +4,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "codeium" },
+		{ name = "path" },
 		{ name = "treesitter" },
 		{ name = "mkdnflow" },
 		{ name = "buffer-lines" },
