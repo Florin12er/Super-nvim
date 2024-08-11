@@ -1,3 +1,6 @@
+-- Theme
+local theme = "dracula"
+
 -- Tabs and Indentation
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -18,13 +21,15 @@ vim.opt.incsearch = true
 -- Display
 vim.opt.colorcolumn = "80"
 vim.cmd("highlight ColorColumn ctermbg=NONE guibg=lightgrey")
-vim.o.wrap = false
-vim.o.linebreak = false
+vim.opt.wrap = false
+vim.opt.linebreak = false
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
-vim.cmd("set number")
-vim.cmd("set relativenumber")
-vim.cmd("set cursorline")
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
+
+-- Gitsigns
 vim.cmd("Gitsigns toggle_signs")
 vim.cmd("Gitsigns toggle_current_line_blame")
 
@@ -32,38 +37,47 @@ vim.cmd("Gitsigns toggle_current_line_blame")
 vim.opt.updatetime = 50
 
 -- VimTeX
-vim.cmd("let g:vimtex_compiler_method = 'latexrun'")
-vim.cmd("let g:tex_flavor='latex'")
+vim.g.vimtex_compiler_method = "latexrun"
+vim.g.tex_flavor = "latex"
 
 -- Other Plugins
 require("Comment").setup()
-require("cmp_bulma"):setup()
+require("cmp_bulma").setup()
 require("oil").setup()
+require("lualine").setup({
+	options = {
+		theme = theme,
+	},
+})
+
 -- Colorscheme
-vim.cmd([[colorscheme onedark]])
+vim.cmd("colorscheme " .. theme)
 
 -- Terminal Colors
-vim.cmd("set t_Co=256")
-vim.cmd(":set termguicolors")
+vim.opt.termguicolors = true
 
 -- Compatibility
-vim.o.compatible = false
+vim.opt.compatible = false
 
 -- UI Settings
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = "nc"
-vim.o.timeoutlen = 300
-vim.o.ttimeoutlen = 10
+vim.opt.timeoutlen = 300
+vim.opt.ttimeoutlen = 10
 
-require("lualine").setup({
-	options = {
-		theme = "onedark",
-	},
-})
 -- Miscellaneous
 vim.opt.isfname:append("@-@")
 vim.opt.shortmess:append("I")
-vim.o.winfixheight = true
-vim.cmd([[autocmd VimEnter * LspStart<CR>]])
+vim.opt.winfixheight = true
+
+-- Autocommands
+vim.api.nvim_create_autocmd("VimEnter", {
+	pattern = "*",
+	command = "LspStart",
+})
+
+-- Transparent Background
 vim.cmd("TransparentEnable")
+
+-- Enable Lua Loader
 vim.loader.enable()
