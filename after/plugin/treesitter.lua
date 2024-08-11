@@ -1,6 +1,6 @@
 require("nvim-treesitter.configs").setup({
 	sync_install = false,
-	ensure_installed = { "html", "css" },
+	ensure_installed = { "html", "css", "markdown", "markdown_inline" },
 	auto_install = true,
 	indent = {
 		enable = true,

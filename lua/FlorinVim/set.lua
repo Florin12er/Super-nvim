@@ -16,6 +16,8 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 -- Display
+vim.opt.colorcolumn = "80"
+vim.cmd("highlight ColorColumn ctermbg=NONE guibg=lightgrey")
 vim.o.wrap = false
 vim.o.linebreak = false
 vim.opt.termguicolors = true
@@ -23,6 +25,8 @@ vim.opt.scrolloff = 8
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 vim.cmd("set cursorline")
+vim.cmd("Gitsigns toggle_signs")
+vim.cmd("Gitsigns toggle_current_line_blame")
 
 -- Performance
 vim.opt.updatetime = 50
@@ -33,22 +37,10 @@ vim.cmd("let g:tex_flavor='latex'")
 
 -- Other Plugins
 require("Comment").setup()
-require("mkdnflow").setup({})
-require("easytables").setup({})
 require("cmp_bulma"):setup()
 require("oil").setup()
-
 -- Colorscheme
-vim.cmd([[colorscheme tokyonight]])
-vim.opt.colorcolumn = "80"
-vim.cmd("highlight ColorColumn ctermbg=0 guibg=#ADD8E6") -- Light blue in hex
-
--- Folding
-vim.o.foldcolumn = "0"
-vim.o.foldlevel = 99
-vim.o.foldnestmax = 10
-vim.o.foldlevelstart = 99
-vim.cmd("autocmd FileType org setlocal nofoldenable")
+vim.cmd([[colorscheme onedark]])
 
 -- Terminal Colors
 vim.cmd("set t_Co=256")
@@ -63,9 +55,15 @@ vim.opt.concealcursor = "nc"
 vim.o.timeoutlen = 300
 vim.o.ttimeoutlen = 10
 
+require("lualine").setup({
+	options = {
+		theme = "onedark",
+	},
+})
 -- Miscellaneous
 vim.opt.isfname:append("@-@")
 vim.opt.shortmess:append("I")
 vim.o.winfixheight = true
 vim.cmd([[autocmd VimEnter * LspStart<CR>]])
 vim.cmd("TransparentEnable")
+vim.loader.enable()

@@ -1,5 +1,7 @@
 local cmp = require("cmp")
+
 cmp.setup({
+	-- Configure completion sources
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
@@ -13,7 +15,7 @@ cmp.setup({
 		{
 			name = "latex_symbols",
 			option = {
-				strategy = 2, -- mixed
+				strategy = 2, -- mixed strategy
 			},
 		},
 		{
@@ -25,16 +27,16 @@ cmp.setup({
 			},
 		},
 	},
+
+	-- Snippet expansion
 	snippet = {
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
 		end,
 	},
+
+	-- Key mappings
 	mapping = cmp.mapping.preset.insert({
-		["<C-d>"] = cmp.mapping.scroll_docs(-1),
-		["<C-f>"] = cmp.mapping.scroll_docs(1),
-		["<C-e>"] = cmp.mapping.close(),
-		["<C-Space>"] = cmp.mapping.complete(),
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
@@ -54,25 +56,21 @@ cmp.setup({
 			end
 		end, { "i", "s" }),
 	}),
+
+	-- Formatting
 	formatting = {
 		format = function(entry, item)
+			-- Highlight colors
 			local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+
+			-- LSP kind formatting
 			item = require("lspkind").cmp_format({
 				mode = "symbol",
 				maxwidth = 50,
 				ellipsis_char = "...",
 				symbol_map = { Codeium = "" },
 			})(entry, item)
-			if entry.source.name == "bulma" then
-				item.menu = entry.completion_item.menu
-				item.documentation = {
-					kind = "markdown",
-					value = "This is a Bulma snippet. Bulma is a modern CSS framework based on Flexbox.",
-				}
-			elseif color_item.abbr_hl_group then
-				item.kind_hl_group = color_item.abbr_hl_group
-				item.kind = color_item.abbr
-			end
+
 			return item
 		end,
 	},
