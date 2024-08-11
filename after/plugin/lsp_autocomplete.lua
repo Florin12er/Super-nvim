@@ -23,6 +23,7 @@ require("mason-lspconfig").setup({
 		"golangci_lint_ls",
 		"cssmodules_ls",
 		"clangd",
+		"prismals",
 		"jdtls",
 		"csharp_ls",
 		"svelte",
@@ -41,6 +42,9 @@ local function custom_on_attach(client, bufnr)
 end
 
 lspconfig.lua_ls.setup({
+	capabilities = capabilities,
+})
+lspconfig.prismals.setup({
 	capabilities = capabilities,
 })
 lspconfig.svelte.setup({

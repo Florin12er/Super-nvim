@@ -49,6 +49,12 @@ require("lazy").setup({
 		"Mofiqul/dracula.nvim",
 		"shaunsingh/nord.nvim",
 		{
+			"razak17/tailwind-fold.nvim",
+			opts = {},
+			dependencies = { "nvim-treesitter/nvim-treesitter" },
+			ft = { "html", "svelte", "astro", "vue", "typescriptreact", "javascriptreact", "php", "blade" },
+		},
+		{
 			"scottmckendry/cyberdream.nvim",
 			lazy = false,
 			priority = 1000,
@@ -136,10 +142,6 @@ require("lazy").setup({
 			end,
 		},
 		--Productivity
-		{
-			"jsongerber/nvim-px-to-rem",
-			config = true,
-		},
 		"windwp/nvim-ts-autotag",
 		{
 			"windwp/nvim-autopairs",
