@@ -4,52 +4,52 @@ vim.g.maplocalleader = " "
 
 -- Visual Mode Adjustments
 -- Move selected lines up or down
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 
 -- Navigation Enhancements
 -- Keep cursor position when joining lines
-vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines, keep cursor position" })
 -- Center screen after page up/down
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Page up, center screen" })
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Page down, center screen" })
 -- Center screen after searching
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result, center screen" })
+vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result, center screen" })
 
 -- Clipboard and Paste
 -- Yank to system clipboard
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Yank to system clipboard" })
+vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "Yank line to system clipboard" })
 -- Paste over selection without affecting register
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste over selection, keep register" })
 -- Delete without affecting register
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_dd]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_dd]], { desc = "Delete, keep register" })
 
 -- Telescope Integration
 local builtin = require("telescope.builtin")
 -- Find string using Telescope
 vim.keymap.set("n", "<leader>fs", function()
 	builtin.grep_string({ search = vim.fn.input("Find > ") })
-end)
+end, { desc = "Find string (Telescope)" })
 
 -- Harpoon Integration
 local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 -- Add file to Harpoon
-vim.keymap.set("n", "<leader>m", mark.add_file)
+vim.keymap.set("n", "<leader>m", mark.add_file, { desc = "Add file to Harpoon" })
 -- Toggle Harpoon quick menu
-vim.keymap.set("n", "<leader>w", ui.toggle_quick_menu)
+vim.keymap.set("n", "<leader>w", ui.toggle_quick_menu, { desc = "Toggle Harpoon menu" })
 -- Navigate to Harpoon files
 for i = 1, 9 do
 	vim.keymap.set("n", "<M-" .. i .. ">", function()
 		ui.nav_file(i)
-	end)
+	end, { desc = "Navigate to Harpoon file " .. i })
 end
 
 -- Formatting
 -- Format buffer using LSP
-vim.keymap.set("n", "<leader>bf", vim.lsp.buf.format, {})
+vim.keymap.set("n", "<leader>bf", vim.lsp.buf.format, { desc = "Format buffer (LSP)" })
 
 -- LSP Keybindings
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -58,20 +58,30 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 		local opts = { buffer = ev.buf }
 		-- LSP-related keybindings
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, opts)
-		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-		vim.keymap.set("n", "<C-he>", vim.lsp.buf.signature_help, opts)
-		vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-		vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
+		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Go to declaration", buffer = ev.buf })
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition", buffer = ev.buf })
+		vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, { desc = "Hover documentation", buffer = ev.buf })
+		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Go to implementation", buffer = ev.buf })
+		vim.keymap.set("n", "<C-he>", vim.lsp.buf.signature_help, { desc = "Signature help", buffer = ev.buf })
+		vim.keymap.set(
+			"n",
+			"<space>wa",
+			vim.lsp.buf.add_workspace_folder,
+			{ desc = "Add workspace folder", buffer = ev.buf }
+		)
+		vim.keymap.set(
+			"n",
+			"<space>wr",
+			vim.lsp.buf.remove_workspace_folder,
+			{ desc = "Remove workspace folder", buffer = ev.buf }
+		)
 		vim.keymap.set("n", "<space>wl", function()
 			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		end, opts)
-		vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-		vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-		vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+		end, { desc = "List workspace folders", buffer = ev.buf })
+		vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, { desc = "Type definition", buffer = ev.buf })
+		vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, { desc = "Rename symbol", buffer = ev.buf })
+		vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, { desc = "Code action", buffer = ev.buf })
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Find references", buffer = ev.buf })
 	end,
 })
 
@@ -79,29 +89,29 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- Accept Codeium suggestion
 vim.keymap.set("i", "<C-c>", function()
 	return vim.fn["codeium#Accept"]()
-end, { expr = true, silent = true })
+end, { expr = true, silent = true, desc = "Accept Codeium suggestion" })
 
 -- Flash.nvim Integration
 -- Jump using flash.nvim
-vim.keymap.set({ "n", "o", "x" }, "s", function()
+vim.keymap.set({ "n", "o", "x" }, "<leader><space>s", function()
 	require("flash").jump()
-end)
+end, { desc = "Jump (flash.nvim)" })
 -- Use treesitter with flash.nvim
-vim.keymap.set({ "n", "o", "x" }, "S", function()
+vim.keymap.set({ "n", "o", "x" }, "<leader><space>S", function()
 	require("flash").treesitter()
-end)
+end, { desc = "Treesitter jump (flash.nvim)" })
 -- Remote jump with flash.nvim
-vim.keymap.set({ "n", "o", "x" }, "r", function()
+vim.keymap.set({ "n", "o", "x" }, "<leader><space>r", function()
 	require("flash").remote()
-end)
+end, { desc = "Remote jump (flash.nvim)" })
 -- Treesitter search with flash.nvim
-vim.keymap.set({ "n", "o", "x" }, "R", function()
+vim.keymap.set({ "n", "o", "x" }, "<leader><space>R", function()
 	require("flash").treesitter_search()
-end)
+end, { desc = "Treesitter search (flash.nvim)" })
 -- Toggle flash.nvim
-vim.keymap.set({ "n", "o", "x" }, "<c-s>", function()
+vim.keymap.set({ "n", "o", "x" }, "<leader><space>t", function()
 	require("flash").toggle()
-end)
+end, { desc = "Toggle flash.nvim" })
 
 -- Which-key Integration
 -- Show global keymaps
@@ -122,6 +132,8 @@ wk.add({
 	{
 		mode = { "n", "v" }, -- NORMAL and VISUAL mode
 		{ "<leader>q", "<cmd>q<cr>", desc = "Quit" }, -- Quit command
+		{ "<Tab>", "<cmd>bn<cr>", desc = "Next buffer" },
+		{ "<S-Tab>", "<cmd>bp<cr>", desc = "Previous buffer" },
 	},
 	{
 		mode = "n",

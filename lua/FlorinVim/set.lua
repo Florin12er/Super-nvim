@@ -1,7 +1,6 @@
 vim.opt.guicursor = ""
 -- Theme
 local theme = "dracula"
-
 -- Tabs and Indentation
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -43,9 +42,11 @@ vim.g.tex_flavor = "latex"
 
 -- Other Plugins
 require("Comment").setup()
+require("nvim-surround").setup({})
 require("cmp_bulma").setup()
 require("oil").setup({
 	default_file_explorer = true,
+	skip_confirm_for_simple_edits = true,
 	delete_to_trash = false,
 	use_default_keymaps = true,
 	view_options = {
@@ -87,5 +88,4 @@ vim.api.nvim_create_autocmd("VimEnter", {
 -- Transparent Background
 vim.cmd("TransparentEnable")
 
--- Enable Lua Loader
 vim.loader.enable()
