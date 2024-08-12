@@ -2,7 +2,7 @@ local null_ls = require("null-ls")
 
 -- Auto-format on save for specific file types
 vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = { "*.lua", "*.go", "*.js", "*.jsx", "*.ts", "*.tsx", "*.rb", "*.py", "*.java" },
+	pattern = { "*.lua", "*.go", "*.js", "*.jsx", "*.ts", "*.tsx", "*.py", "*.java" },
 	callback = function()
 		vim.lsp.buf.format({ async = false })
 	end,
@@ -27,6 +27,7 @@ null_ls.setup({
 		-- Ruby
 		null_ls.builtins.diagnostics.rubocop,
 		null_ls.builtins.formatting.rubocop,
+		null_ls.builtins.formatting.htmlbeautifier,
 		-- C#
 		null_ls.builtins.formatting.csharpier,
 		-- Java

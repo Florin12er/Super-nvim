@@ -27,7 +27,7 @@ require("mason-lspconfig").setup({
 		"csharp_ls",
 		"svelte",
 		"templ",
-		"ruby_ls",
+		"solargraph",
 	},
 })
 
@@ -35,6 +35,7 @@ require("mason-lspconfig").setup({
 vim.filetype.add({
 	extension = {
 		ejs = "ejs",
+		erb = "eruby",
 		templ = "templ",
 	},
 })
@@ -48,8 +49,15 @@ lspconfig.lua_ls.setup({
 })
 
 -- ruby
-lspconfig.ruby_ls.setup({
+lspconfig.solargraph.setup({
 	capabilities = capabilities,
+	filetypes = { "ruby", "eruby" },
+	settings = {
+		solargraph = {
+			diagnostics = true,
+			completion = true,
+		},
+	},
 })
 
 -- JavaScript/TypeScript
@@ -83,17 +91,20 @@ lspconfig.tailwindcss.setup({
 		"templ",
 		"astro",
 		"javascript",
+		"ruby",
+		"eruby",
 	},
 	settings = {
 		tailwindCSS = {
 			includeLanguages = {
+				erb = "html",
+				eruby = "html",
 				templ = "html",
 				ejs = "ejs",
 			},
 		},
 	},
 })
-
 -- HTML and related
 lspconfig.html.setup({
 	capabilities = capabilities,
@@ -104,19 +115,44 @@ lspconfig.html.setup({
 			javascript = true,
 		},
 	},
-	filetypes = { "html", "htmldjango", "markdown", "templ" },
+	filetypes = { "html", "htmldjango", "markdown", "templ", "ruby", "eruby", "ejs" },
 })
+
 lspconfig.emmet_ls.setup({
 	capabilities = capabilities,
-	filetypes = { "html", "svelte", "htmldjango", "javascriptreact", "typescriptreact", "markdown", "ejs", "templ" },
+	filetypes = {
+		"html",
+		"ruby",
+		"eruby",
+		"svelte",
+		"htmldjango",
+		"javascriptreact",
+		"typescriptreact",
+		"markdown",
+		"ejs",
+		"templ",
+	},
 })
+
 lspconfig.emmet_language_server.setup({
 	capabilities = capabilities,
-	filetypes = { "html", "svelte", "htmldjango", "javascriptreact", "typescriptreact", "markdown", "ejs", "templ" },
+	filetypes = {
+		"ruby",
+		"eruby",
+		"html",
+		"svelte",
+		"htmldjango",
+		"javascriptreact",
+		"typescriptreact",
+		"markdown",
+		"ejs",
+		"templ",
+	},
 })
+
 lspconfig.htmx.setup({
 	capabilities = capabilities,
-	filetypes = { "html", "templ" },
+	filetypes = { "html", "templ", "ruby", "eruby", "ejs" },
 })
 
 -- Python
