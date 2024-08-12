@@ -1,5 +1,6 @@
+vim.opt.guicursor = ""
 -- Theme
-local theme = "dracula"
+local theme = "tokyonight"
 
 -- Tabs and Indentation
 vim.opt.tabstop = 4
@@ -43,7 +44,10 @@ vim.g.tex_flavor = "latex"
 -- Other Plugins
 require("Comment").setup()
 require("cmp_bulma").setup()
-require("oil").setup()
+require("oil").setup({
+	default_file_explorer = true,
+	delete_to_trash = false,
+})
 require("lualine").setup({
 	options = {
 		theme = theme,

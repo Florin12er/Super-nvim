@@ -2,14 +2,12 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Basic Keybindings
-vim.keymap.set("n", "<C-s>", vim.cmd.w) -- Save
 vim.keymap.set("n", "<leader>q", vim.cmd.q) -- Quit
 vim.keymap.set("n", "<leader>e", ":Oil<CR>", { noremap = true, silent = true }) -- Open Netrw
 
 -- Git
 vim.keymap.set("n", "<leader>g", ":Git<CR>")
 vim.keymap.set("n", "<leader>gs", ":Gitsigns toggle_signs<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { noremap = true, silent = true })
 
 -- Undo Tree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
@@ -97,3 +95,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.keymap.set("i", "<C-c>", function()
 	return vim.fn["codeium#Accept"]()
 end, { expr = true, silent = true })
+
+-- flash nvim
+vim.keymap.set({ "n", "o", "x" }, "s", function()
+	require("flash").jump()
+end)
+vim.keymap.set({ "n", "o", "x" }, "S", function()
+	require("flash").treesitter()
+end)
+vim.keymap.set({ "n", "o", "x" }, "r", function()
+	require("flash").remote()
+end)
+vim.keymap.set({ "n", "o", "x" }, "R", function()
+	require("flash").treesitter_search()
+end)
+vim.keymap.set({ "n", "o", "x" }, "<c-s>", function()
+	require("flash").toggle()
+end)

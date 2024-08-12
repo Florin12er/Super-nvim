@@ -123,6 +123,10 @@ require("lazy").setup({
 	},
 	-- Productivity
 	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+	},
+	{
 		"windwp/nvim-ts-autotag",
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
