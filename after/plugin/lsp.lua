@@ -27,6 +27,7 @@ require("mason-lspconfig").setup({
 		"csharp_ls",
 		"svelte",
 		"templ",
+		"ruby_ls",
 	},
 })
 
@@ -43,6 +44,11 @@ local lspconfig = require("lspconfig")
 
 -- Lua
 lspconfig.lua_ls.setup({
+	capabilities = capabilities,
+})
+
+-- ruby
+lspconfig.ruby_ls.setup({
 	capabilities = capabilities,
 })
 

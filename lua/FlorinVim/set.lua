@@ -59,9 +59,7 @@ require("lualine").setup({
 	},
 })
 
--- Colorscheme
 vim.cmd("colorscheme " .. theme)
-
 -- Terminal Colors
 vim.opt.termguicolors = true
 
