@@ -2,7 +2,6 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Basic Keybindings
-vim.keymap.set("n", "<leader>q", vim.cmd.q) -- Quit
 vim.keymap.set("n", "<leader>e", ":Oil<CR>", { noremap = true, silent = true }) -- Open Netrw
 
 -- Git
@@ -44,12 +43,6 @@ vim.api.nvim_set_keymap("n", "<leader>vs", ":vsplit<CR>", { noremap = true, sile
 
 -- Telescope
 local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fr", builtin.oldfiles, {})
-vim.keymap.set("n", "<leader>gf", builtin.git_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>cs", builtin.colorscheme, {})
-vim.keymap.set("n", "<leader>bb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fs", function()
 	builtin.grep_string({ search = vim.fn.input("Find > ") })
 end)
@@ -66,7 +59,7 @@ for i = 1, 9 do
 end
 
 -- Formatting
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {})
+vim.keymap.set("n", "<leader>bf", vim.lsp.buf.format, {})
 
 -- LSP Keybindings
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -112,3 +105,23 @@ end)
 vim.keymap.set({ "n", "o", "x" }, "<c-s>", function()
 	require("flash").toggle()
 end)
+
+-- which-key
+vim.keymap.set("n", "<leader>?", function()
+	require("which-key").show({ global = true })
+end, { desc = "Global Keymaps (which-key)" })
+
+-- telscope
+local wk = require("which-key")
+wk.add({
+	{ "<leader>f", group = "file" }, -- group
+	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n" },
+	{ "<leader>cs", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme", mode = "n" },
+	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files", mode = "n" },
+	{ "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Git Files", mode = "n" },
+	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers", mode = "n" },
+	{
+		mode = { "n", "v" }, -- NORMAL and VISUAL mode
+		{ "<leader>q", "<cmd>q<cr>", desc = "Quit" }, -- no need to specify mode since it's inherited
+	},
+})

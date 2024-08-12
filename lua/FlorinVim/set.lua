@@ -1,6 +1,6 @@
 vim.opt.guicursor = ""
 -- Theme
-local theme = "tokyonight"
+local theme = "dracula"
 
 -- Tabs and Indentation
 vim.opt.tabstop = 4
@@ -47,6 +47,10 @@ require("cmp_bulma").setup()
 require("oil").setup({
 	default_file_explorer = true,
 	delete_to_trash = false,
+	use_default_keymaps = true,
+	view_options = {
+		show_hidden = true,
+	},
 })
 require("lualine").setup({
 	options = {
