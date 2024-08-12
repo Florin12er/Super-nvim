@@ -126,7 +126,7 @@ wk.add({
 	{
 		mode = "n",
 		{ "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "Undo Tree" },
-		{ "<leader>o", "<cmd>Oil<cr>", desc = "Open Oil" },
+		{ "<leader>e", "<cmd>Oil<cr>", desc = "Open Oil" },
 		{ "<leader>g", "<cmd>Git<cr>", desc = "Git" },
 		{ "<leader>gs", "<cmd>Gitsigns toggle_signs<cr>", desc = "Toggle Gitsigns" },
 		{ "<leader>x", "<cmd>!chmod +x %<CR>", desc = "Make Executable" },
