@@ -53,12 +53,15 @@ require("oil").setup({
 		show_hidden = true,
 	},
 })
+-- local wallbash = require("FlorinVim.wallbash")
+-- wallbash.setup()
+--
+
 require("lualine").setup({
 	options = {
 		theme = theme,
 	},
 })
-
 vim.cmd("colorscheme " .. theme)
 -- Terminal Colors
 vim.opt.termguicolors = true

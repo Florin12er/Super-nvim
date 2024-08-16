@@ -114,7 +114,7 @@ require("lazy").setup({
 	},
 	"nvim-treesitter/nvim-treesitter",
 	"maxmellon/vim-jsx-pretty",
-	"Exafunction/codeium.vim",
+	{ "Exafunction/codeium.vim" },
 	{
 		"Exafunction/codeium.nvim",
 		dependencies = {
