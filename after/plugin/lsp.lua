@@ -37,6 +37,7 @@ vim.filetype.add({
 		ejs = "ejs",
 		erb = "eruby",
 		templ = "templ",
+		svelte = "svelte",
 	},
 })
 
@@ -89,6 +90,7 @@ lspconfig.tailwindcss.setup({
 		"typescript",
 		"javascriptreact",
 		"templ",
+		"svelte",
 		"astro",
 		"javascript",
 		"ruby",
@@ -101,6 +103,7 @@ lspconfig.tailwindcss.setup({
 				eruby = "html",
 				templ = "html",
 				ejs = "ejs",
+				svelte = "svelte",
 			},
 		},
 	},
