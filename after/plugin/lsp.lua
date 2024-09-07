@@ -10,6 +10,7 @@ require("mason-lspconfig").setup({
 		"cssls",
 		"html",
 		"emmet_ls",
+		"taplo",
 		"emmet_language_server",
 		"eslint",
 		"kotlin_language_server",
@@ -21,6 +22,7 @@ require("mason-lspconfig").setup({
 		"pylsp",
 		"golangci_lint_ls",
 		"cssmodules_ls",
+		"somesass_ls",
 		"clangd",
 		"prismals",
 		"jdtls",
@@ -28,6 +30,9 @@ require("mason-lspconfig").setup({
 		"svelte",
 		"templ",
 		"solargraph",
+		"astro",
+		"stimulus_ls",
+		"intelephense",
 	},
 })
 
@@ -38,6 +43,8 @@ vim.filetype.add({
 		erb = "eruby",
 		templ = "templ",
 		svelte = "svelte",
+		astro = "astro",
+		vue = "vue",
 	},
 })
 
@@ -46,6 +53,18 @@ local lspconfig = require("lspconfig")
 
 -- Lua
 lspconfig.lua_ls.setup({
+	capabilities = capabilities,
+})
+-- PHP
+lspconfig.intelephense.setup({
+	capabilities = capabilities,
+})
+lspconfig.stimulus_ls.setup({
+	capabilities = capabilities,
+})
+
+-- Toml
+lspconfig.taplo.setup({
 	capabilities = capabilities,
 })
 
@@ -62,23 +81,25 @@ lspconfig.solargraph.setup({
 })
 
 -- JavaScript/TypeScript
-lspconfig.tsserver.setup({
-	capabilities = capabilities,
-})
-lspconfig.eslint.setup({
-	capabilities = capabilities,
-})
+-- lspconfig.eslint.setup({
+-- 	capabilities = capabilities,
+-- })
 lspconfig.prismals.setup({ capabilities = capabilities })
+lspconfig.tsserver.setup({ capabilities = capabilities })
 lspconfig.svelte.setup({ capabilities = capabilities })
 lspconfig.volar.setup({ capabilities = capabilities })
 
 -- CSS
 lspconfig.cssls.setup({
 	capabilities = capabilities,
-	filetypes = { "svelte", "css", "sass", "less", "javascriptreact" },
+	filetypes = { "svelte", "css", "sass", "less" },
+})
+lspconfig.somesass_ls.setup({
+	capabilities = capabilities,
 })
 lspconfig.cssmodules_ls.setup({
 	capabilities = capabilities,
+	filetypes = { "svelte", "css", "sass", "less" },
 })
 lspconfig.tailwindcss.setup({
 	capabilities = capabilities,
@@ -95,6 +116,8 @@ lspconfig.tailwindcss.setup({
 		"javascript",
 		"ruby",
 		"eruby",
+		"blade",
+		"vue",
 	},
 	settings = {
 		tailwindCSS = {
@@ -104,6 +127,9 @@ lspconfig.tailwindcss.setup({
 				templ = "html",
 				ejs = "ejs",
 				svelte = "svelte",
+				astro = "astro",
+				blade = "blade",
+				vue = "vue",
 			},
 		},
 	},
@@ -118,7 +144,7 @@ lspconfig.html.setup({
 			javascript = true,
 		},
 	},
-	filetypes = { "html", "htmldjango", "markdown", "templ", "ruby", "eruby", "ejs" },
+	filetypes = { "html", "htmldjango", "markdown", "templ", "ruby", "eruby", "ejs", "svelte", "astro", "blade" },
 })
 
 lspconfig.emmet_ls.setup({
@@ -134,6 +160,8 @@ lspconfig.emmet_ls.setup({
 		"markdown",
 		"ejs",
 		"templ",
+		"astro",
+		"blade",
 	},
 })
 
@@ -150,6 +178,8 @@ lspconfig.emmet_language_server.setup({
 		"markdown",
 		"ejs",
 		"templ",
+		"astro",
+		"blade",
 	},
 })
 
@@ -214,5 +244,5 @@ lspconfig.gopls.setup({ capabilities = capabilities })
 lspconfig.golangci_lint_ls.setup({ capabilities = capabilities })
 lspconfig.templ.setup({ capabilities = capabilities })
 
--- Load VSCode-style snippets
-require("luasnip.loaders.from_vscode").lazy_load()
+-- Astro
+lspconfig.astro.setup({ capabilities = capabilities })

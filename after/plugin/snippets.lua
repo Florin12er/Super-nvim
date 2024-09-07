@@ -79,3 +79,5 @@ cmp.setup({
 require("surround-ui").setup({
 	root_key = "S",
 })
+require("luasnip.loaders.from_vscode").lazy_load()
+require("vim-react-snippets").lazy_load()

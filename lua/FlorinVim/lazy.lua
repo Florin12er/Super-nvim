@@ -15,6 +15,7 @@ require("lazy").setup({
 	-- CMP Plugins
 	{
 		"hrsh7th/nvim-cmp",
+		"mlaursen/vim-react-snippets",
 		"hrsh7th/cmp-path",
 		"amarakon/nvim-cmp-buffer-lines",
 		"garyhurtz/cmp_bulma.nvim",

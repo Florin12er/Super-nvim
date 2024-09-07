@@ -32,5 +32,10 @@ null_ls.setup({
 		null_ls.builtins.formatting.csharpier,
 		-- Java
 		null_ls.builtins.formatting.google_java_format,
+
+		-- Php
+		null_ls.builtins.formatting.blade_formatter,
+		null_ls.builtins.formatting.phpcsfixer,
+		null_ls.builtins.formatting.pretty_php,
 	},
 })
