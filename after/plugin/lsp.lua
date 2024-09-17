@@ -6,7 +6,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = {
 		"lua_ls",
-		"tsserver",
+		"ts_ls",
 		"cssls",
 		"html",
 		"emmet_ls",
@@ -85,7 +85,7 @@ lspconfig.solargraph.setup({
 -- 	capabilities = capabilities,
 -- })
 lspconfig.prismals.setup({ capabilities = capabilities })
-lspconfig.tsserver.setup({ capabilities = capabilities })
+lspconfig.ts_ls.setup({ capabilities = capabilities })
 lspconfig.svelte.setup({ capabilities = capabilities })
 lspconfig.volar.setup({ capabilities = capabilities })
 
