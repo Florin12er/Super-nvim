@@ -26,12 +26,13 @@ vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste over selection, keep 
 -- Delete without affecting register
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_dd]], { desc = "Delete, keep register" })
 
--- Telescope Integration
-local builtin = require("telescope.builtin")
--- Find string using Telescope
+-- Find string using fzf-lua
 vim.keymap.set("n", "<leader>fs", function()
-	builtin.grep_string({ search = vim.fn.input("Find > ") })
-end, { desc = "Find string (Telescope)" })
+	require("fzf-lua").grep({
+		search = vim.fn.input("Find > "),
+		no_esc = true,
+	})
+end, { desc = "Find string (fzf-lua)" })
 
 -- Harpoon Integration
 local mark = require("harpoon.mark")
@@ -123,12 +124,12 @@ end, { desc = "Global Keymaps (which-key)" })
 local wk = require("which-key")
 wk.add({
 	{ "<leader>f", group = "find" }, -- Group for find commands
-	{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n" },
-	{ "<leader>cs", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme", mode = "n" },
-	{ "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent Files", mode = "n" },
-	{ "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Git Files", mode = "n" },
-	{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers", mode = "n" },
-	{ "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps", mode = "n" },
+	{ "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Find File", mode = "n" },
+	{ "<leader>cs", "<cmd>FzfLua colorschemes<cr>", desc = "Colorscheme", mode = "n" },
+	{ "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Recent Files", mode = "n" },
+	{ "<leader>fg", "<cmd>FzfLua git_files<cr>", desc = "Git Files", mode = "n" },
+	{ "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Buffers", mode = "n" },
+	{ "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "Keymaps", mode = "n" },
 	{
 		mode = { "n", "v" }, -- NORMAL and VISUAL mode
 		{ "<leader>q", "<cmd>q<cr>", desc = "Quit" }, -- Quit command

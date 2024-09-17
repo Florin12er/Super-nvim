@@ -86,7 +86,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	command = "LspStart",
 })
 
--- Transparent Background
 vim.cmd("TransparentEnable")
 
 vim.loader.enable()
