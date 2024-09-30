@@ -67,6 +67,7 @@ require("lazy").setup({
 			priority = 1000,
 		},
 	},
+	"brenoprata10/nvim-highlight-colors",
 	-- Transparency
 	"xiyaowong/transparent.nvim",
 	-- UI Enhancements
@@ -119,15 +120,11 @@ require("lazy").setup({
 	},
 	"nvim-treesitter/nvim-treesitter",
 	"maxmellon/vim-jsx-pretty",
-	{ "Exafunction/codeium.vim" },
+	-- { "Exafunction/codeium.vim" },
 	{
-		"Exafunction/codeium.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"hrsh7th/nvim-cmp",
-		},
+		"supermaven-inc/supermaven-nvim",
 		config = function()
-			require("codeium").setup({})
+			require("supermaven-nvim").setup({})
 		end,
 	},
 	-- Productivity
@@ -171,4 +168,5 @@ require("lazy").setup({
 	{ "christoomey/vim-tmux-navigator", lazy = false },
 	-- Games
 	"ThePrimeagen/vim-be-good",
+	"nvim-lua/plenary.nvim",
 })

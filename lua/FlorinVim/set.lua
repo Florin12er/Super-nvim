@@ -89,3 +89,5 @@ vim.api.nvim_create_autocmd("VimEnter", {
 vim.cmd("TransparentEnable")
 
 vim.loader.enable()
+
+require("nvim-highlight-colors").setup({})
