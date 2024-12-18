@@ -4,20 +4,20 @@ local M = {}
 -- Define your color palette
 M.colors = {
 	fg = "#FFFFFF",
-	bg = "#191730",
-	selection_fg = "#191730",
+	bg = "#312830",
+	selection_fg = "#312830",
 	selection_bg = "#FFFFFF",
-	cursor = "#F5D5D2",
-	cursor_text = "#040505",
+	cursor = "#D7816A",
+	cursor_text = "#0E1010",
 
-	black = { "#2C2952", "#5C578F" },
-	red = { "#FFD0CC", "#F0B0AA" },
-	green = { "#FFCCFB", "#F0AAEA" },
-	yellow = { "#FFCCE6", "#F0AACE" },
-	blue = { "#A09AE6", "#A09AE6" },
-	magenta = { "#E69ADF", "#E69ADF" },
-	cyan = { "#E69AC1", "#E69AC1" },
-	white = { "#FFD0CC", "#F0B0AA" },
+	black = { "#52294D", "#8F5789" },
+	red = { "#FFD7CC", "#F0B9AA" },
+	green = { "#FFCCD7", "#F0AAB9" },
+	yellow = { "#FFCCCD", "#F0AAAB" },
+	blue = { "#E69ADD", "#E69ADD" },
+	magenta = { "#E69AAA", "#E69AAA" },
+	cyan = { "#E69A9B", "#E69A9B" },
+	white = { "#FFD7CC", "#F0B9AA" },
 }
 
 -- Set up highlight groups

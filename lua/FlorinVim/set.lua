@@ -1,6 +1,6 @@
 vim.opt.guicursor = ""
 -- Theme
-local theme = "rose-pine"
+local theme = "catppuccin-mocha"
 -- Tabs and Indentation
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

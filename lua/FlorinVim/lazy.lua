@@ -43,6 +43,7 @@ require("lazy").setup({
 		},
 		"projekt0n/github-nvim-theme",
 		"joshdick/onedark.vim",
+		"Mofiqul/vscode.nvim",
 		{
 			"catppuccin/nvim",
 			name = "catppuccin",

@@ -32,6 +32,7 @@ require("mason-lspconfig").setup({
 		"solargraph",
 		"astro",
 		"stimulus_ls",
+		"jedi_language_server",
 		"intelephense",
 	},
 })
@@ -190,6 +191,10 @@ lspconfig.htmx.setup({
 
 -- Python
 lspconfig.pylsp.setup({
+	capabilities = capabilities,
+	filetypes = { "python", "py", "pydantic" },
+})
+lspconfig.jedi_language_server.setup({
 	capabilities = capabilities,
 	filetypes = { "python", "py", "pydantic" },
 })
